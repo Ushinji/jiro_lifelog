@@ -1,5 +1,133 @@
-<div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
-  <%= link_to 'New User', new_user_path, remote: true, class: "btn btn-lg btn-primary" %>
-  <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div class="jiro">
+  <div class="jumbotron jiro">
+    <h1 class="display-3">Hello, world!</h1>
+    <%= link_to 'New User', new_user_path, remote: true, class: "btn btn-lg btn-danger" %>
+    <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  </div>
+
+  <div class="container-fluid jiro">
+    <div class="row">
+      <div class="col-md-4">
+        <h2> 今まで食べた量 </h2>
+        <p> 1000杯 </p>
+      </div>
+      <div class="col-md-4">
+        <h2> 総カロリー </h2>
+        <p>	100000000 kcal </p>
+      </div>
+      <div class="col-md-4">
+        <h2> 踏破店舗 </h2>
+        <p> 30店舗 </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="parent-card-1">
+        <div class="card jiro">
+          <div class="card-header">
+            <div style="display: flex; justify-content: space-between;">
+            <a class="card-link text-danger" data-toggle="collapse" data-parent="#parent-card-1" href="#card-element-1">
+              <button class="btn btn-outline-danger">食事履歴</button>
+            </a>
+            <a class="card-link">
+              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-outline-primary" %>
+            </a>
+            </div>
+          </div>
+          <div id="card-element-1" class="collapse show">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>店舗</th>
+                    <th>メニュー</th>
+                    <th>日付</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>2</th>
+                    <th>新宿</th>
+                    <th>ラーメン</th>
+                    <th>2018/05/31</th>
+                  </tr>
+                  <tr>
+                    <th>1</th>
+                    <th>池袋</th>
+                    <th>ラーメン大</th>
+                    <th>2018/05/18</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="parent-card-2">
+        <div class="card jiro">
+          <div class="card-header">
+            <div style="display: flex; justify-content: space-between;">
+            <a class="card-link" data-toggle="collapse" data-parent="#parent-card-2" href="#card-element-2">
+              <button class="btn btn-outline-danger">称号履歴</button>
+            </a>
+            <a class="card-link">
+              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-outline-primary" %>
+            </a>
+            </div>
+          </div>
+          <div id="card-element-2" class="collapse show">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>称号</th>
+                    <th>取得日付</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <th>初二郎！</th>
+                    <th>2018/05/18</th>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <th>池袋店踏破！</th>
+                    <th>2018/05/18</th>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <th>新宿店踏破！</th>
+                    <th>2018/05/31</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ボタンは最後にしないと優先順の関係で隠れる -->
+<!-- ここからとった https://propeller.in/components/floating-button.php -->
+<!-- Default circle button with ripple effect -->
+<!-- Floating Action Button like Google Material -->
+<div class="menu pmd-floating-action"  role="navigation"> 
+	<a class=""  href="javascript:void(0);"> 
+  <%= link_to '追加', new_user_path, remote: true, class: "pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger", 
+  style: "line-height: 55px;"%>
+	</a> 
 </div>

@@ -46,9 +46,13 @@
 }
 
 .table > tbody > tr > th {
-  border: 1px solid red;
+  border-top-color:red;
+  border-bottom-color:red;
 }
 
 .table > thead > tr > th {
-  border: 1px solid red;
+  border-top: 0pt;
+  border-top-color:red;
+  border-bottom-color:red;
+  // border-bottom: 0pt;
 }

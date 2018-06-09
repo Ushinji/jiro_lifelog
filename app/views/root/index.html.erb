@@ -1,23 +1,27 @@
 <div class="jiro">
   <div class="jumbotron jiro">
-    <h1 class="display-3">Hello, world!</h1>
-    <%= link_to 'New Activity', new_activity_path, remote: true, class: "btn btn-lg btn-danger" %>
-    <div id="activity-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+    <h1 class="display-3">お前は今まで食べた麺の量を覚えているか？</h1>
   </div>
 
   <div class="container-fluid jiro">
     <div class="row">
-      <div class="col-md-4">
-        <h2> 今まで食べた量 </h2>
-        <p> 1000杯 </p>
+      <div class="col-md-4 border-danger">
+        <span class="border-danger">  
+          <h2> 今まで食べた量 </h2>
+          <h3> 1000杯 </h3>
+        </span>
       </div>
-      <div class="col-md-4">
-        <h2> 総カロリー </h2>
-        <p>	100000000 kcal </p>
+      <div class="col-md-4 border-danger">
+        <span class="border-danger">
+          <h2> 総カロリー </h2>
+          <h3>	100000000 kcal </h3>
+        </span>
       </div>
-      <div class="col-md-4">
-        <h2> 踏破店舗 </h2>
-        <p> 30店舗 </p>
+      <div class="col-md-4 border-danger">
+        <span class="border-danger">
+          <h2> 踏破店舗 </h2>
+          <h3> 30店舗 </h3>
+        </span>
       </div>
     </div>
   </div>
@@ -29,10 +33,10 @@
           <div class="card-header jiro">
             <div style="display: flex; justify-content: space-between;">
             <a class="card-link text-danger" data-toggle="collapse" data-parent="#parent-card-1" href="#card-element-1">
-              <button class="btn btn-outline-danger">食事履歴</button>
+              <button class="btn btn-danger ">食事履歴</button>
             </a>
             <a class="card-link">
-              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-outline-primary" %>
+              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-primary" %>
             </a>
             </div>
           </div>
@@ -41,7 +45,6 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>店舗</th>
                     <th>メニュー</th>
                     <th>日付</th>
@@ -50,7 +53,6 @@
                 <tbody id="activites_list">
                   <% @activities.each_with_index do |a, i|%>
                     <tr>
-                      <th><%= "" %></th>
                       <th><%= Store.find(a.store_id).name %></th>
                       <th><%= Menu.find(a.menu_id).name %></th>
                       <th><%= a.created_at.strftime("%Y/%m/%d %H:%M:%S") %></th>
@@ -73,16 +75,16 @@
           <div class="card-header jiro">
             <div style="display: flex; justify-content: space-between;">
             <a class="card-link" data-toggle="collapse" data-parent="#parent-card-2" href="#card-element-2">
-              <button class="btn btn-outline-danger">称号履歴</button>
+              <button class="btn btn-danger">称号履歴</button>
             </a>
             <a class="card-link">
-              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-outline-primary" %>
+              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-primary" %>
             </a>
             </div>
           </div>
           <div id="card-element-2" class="collapse show">
             <div class="card-body">
-              <table class="table">
+              <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th>#</th>

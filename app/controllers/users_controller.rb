@@ -3,12 +3,11 @@ class UsersController < ApplicationController
       @user = User.new
     end
     def create
-      p params
-        @user = User.new
-        name =params['user']['name']
-        email =params['user']['email']
-        @user.name= name
-        @user.email=email
+      @user = User.new
+      name =params['user']['name']
+      email =params['user']['email']
+      @user.name= name
+      @user.email=email
 
       respond_to do |format|
         if @user.save

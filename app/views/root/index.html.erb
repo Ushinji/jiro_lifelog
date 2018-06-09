@@ -48,18 +48,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th>2</th>
-                    <th>新宿</th>
-                    <th>ラーメン</th>
-                    <th>2018/05/31</th>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <th>池袋</th>
-                    <th>ラーメン大</th>
-                    <th>2018/05/18</th>
-                  </tr>
+                  <% @activities.each_with_index do |a, i|%>
+                    <tr>
+                      <th><%= i+1 %></th>
+                      <th><%= Store.find(a.store_id).name %></th>
+                      <th><%= Menu.find(a.menu_id).name %></th>
+                      <th><%= a.created_at.strftime("%Y/%m/%d %H:%M:%S") %></th>
+                    </tr>
+                  <% end %>
                 </tbody>
               </table>
             </div>

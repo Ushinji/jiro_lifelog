@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+store = Store.create(name: '三田本店')
+Menu.create(name: 'ぶた入りラーメン')
+Menu.create(name: 'ぶたダブルラーメン')
+Menu.create(name: '大ラーメン')
+Menu.create(name: 'ぶた入り大ラーメン')
+Menu.create(name: 'ぶたダブル大ラーメン')

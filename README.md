@@ -1,24 +1,16 @@
-# README
+# Gemfile読み込み
+```
+bundle install --path vendor/bundle
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# DB作成・マイグレーション
+```
+bin/rails db:create
+bin/rails db:migrate
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# サーバ起動
+```
+bin/rails s
+=> localhost:3000
+```

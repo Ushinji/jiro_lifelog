@@ -63,7 +63,11 @@
         font-weight: bold;
       }
 
-
+      &--unit {
+        font-size: 32px;
+        text-align: right;
+        color: red;
+      }
     }
   }
 }

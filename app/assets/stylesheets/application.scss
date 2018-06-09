@@ -38,7 +38,13 @@
 .pmd-floating-action-btn .ink{ width:50px; height:50px; }
 
 .jiro { 
-  background-color:yellow;
+  &--header {
+    padding: 20px;
+    font-size: 24px;
+    color: #343a40;
+    background-color: #FFE600;
+    margin-bottom: 24px;
+  }
 
   &--pannel{
     display: flex;

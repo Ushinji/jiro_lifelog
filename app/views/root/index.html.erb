@@ -47,10 +47,10 @@
                     <th>日付</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="activites_list">
                   <% @activities.each_with_index do |a, i|%>
                     <tr>
-                      <th><%= i+1 %></th>
+                      <th><%= "" %></th>
                       <th><%= Store.find(a.store_id).name %></th>
                       <th><%= Menu.find(a.menu_id).name %></th>
                       <th><%= a.created_at.strftime("%Y/%m/%d %H:%M:%S") %></th>

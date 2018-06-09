@@ -1,4 +1,5 @@
 <% if @status == 'success' %>
+    $("#activites_list").append("<%= j(render("tr", activity: @activity)) %>");
 <%  elsif @status == 'fail' %>
     alert('error!');
 <% end %>

@@ -12,9 +12,6 @@ class ActivitiesController < ApplicationController
         abura = params['activity']['abura']
         karame = params['activity']['karame']
         calorie = params['activity']['calorie']
-
-        p '====='
-        p current_user
         
         @activity.user_id=current_user.id
         @activity.store_id=store_id

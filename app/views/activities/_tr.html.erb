@@ -1,0 +1,6 @@
+ <tr>
+  <th><%= "" %></th>
+  <th><%= Store.find(activity.store_id).name %></th>
+  <th><%= Menu.find(activity.menu_id).name %></th>
+  <th><%= activity.created_at.strftime("%Y/%m/%d %H:%M:%S") %></th>
+</tr>

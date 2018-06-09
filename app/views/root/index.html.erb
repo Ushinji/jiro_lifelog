@@ -26,7 +26,7 @@
     <div class="col-md-12">
       <div id="parent-card-1">
         <div class="card jiro">
-          <div class="card-header">
+          <div class="card-header jiro">
             <div style="display: flex; justify-content: space-between;">
             <a class="card-link text-danger" data-toggle="collapse" data-parent="#parent-card-1" href="#card-element-1">
               <button class="btn btn-outline-danger">食事履歴</button>
@@ -70,7 +70,7 @@
     <div class="col-md-12">
       <div id="parent-card-2">
         <div class="card jiro">
-          <div class="card-header">
+          <div class="card-header jiro">
             <div style="display: flex; justify-content: space-between;">
             <a class="card-link" data-toggle="collapse" data-parent="#parent-card-2" href="#card-element-2">
               <button class="btn btn-outline-danger">称号履歴</button>
@@ -123,7 +123,7 @@
 <!-- Floating Action Button like Google Material -->
 <div class="menu pmd-floating-action"  role="navigation"> 
 	<a class=""  href="javascript:void(0);"> 
-  <%= link_to '追加', new_user_path, remote: true, class: "pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger", 
-  style: "line-height: 55px;"%>
+  <%= link_to '追加', new_activity_path, remote: true, class: "pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger",
+    remote: true, style: "line-height: 55px;" %>
 	</a> 
 </div>

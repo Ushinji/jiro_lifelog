@@ -1,0 +1,70 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="page--header">アクティビティ作成</div>
+    <%= form_for(@activity, remote: true) do |f| %>
+
+        <div class="form-group">
+            <%= f.label :store_id, "店名", class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.collection_select :store_id, Store.all, :id, :name, {}, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :menu_id, "メニュー", class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.collection_select :menu_id, Menu.all, :id, :name, {}, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label 'サイズ', class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.select(:size, { '小なめ' => 'small', '多め' => 'large' }, label: '麺の量') %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label '野菜の量', class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.select(:yasai, { '小なめ' => 'small', 'ノーコール' => 'normal' , 'マシ' => 'large' ,'マシマシ' => 'huge' }, label: '野菜の量') %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label 'にんにくの量', class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.select(:ninniku, { '小なめ' => 'small', 'ノーコール' => 'normal' , 'マシ' => 'large' ,'マシマシ' => 'huge'  }, label: 'にんにくの量') %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label 'アブラの量', class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.select(:abura, { '小なめ' => 'small', 'ノーコール' => 'normal', 'マシ' => 'large', 'マシマシ' => 'huge', 'ザブトン' =>'crazy' }, label: 'アブラの量') %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label ' カネシの量', class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.select(:karame, { '小なめ' => 'small', 'ノーコール' => 'normal' , 'マシ' => 'large' ,'マシマシ' => 'huge'  }, label: 'カネシの量') %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label 'カロリー', class: "col-sm-4 control-label"  %><br />
+            <div class="col-sm-10">
+                <%= f.text_field :calorie, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <%= f.submit "作成", class: "btn btn-success btn-sm" %>
+            </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>

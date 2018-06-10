@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: jiro_lifelog
+  database: heroku_bf14128a175e41b
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

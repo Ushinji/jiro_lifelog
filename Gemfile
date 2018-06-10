@@ -10,6 +10,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

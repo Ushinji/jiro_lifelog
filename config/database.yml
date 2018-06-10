@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: jiro_lifelog_production
-  username: jiro_lifelog
-  password: <%= ENV['JIRO_LIFELOG_DATABASE_PASSWORD'] %>
+  database: jiro_lifelog
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>

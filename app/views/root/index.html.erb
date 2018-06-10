@@ -5,95 +5,58 @@
 
   <%= render 'counter_pannels' %>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div id="parent-card-1">
-        <div class="card jiro">
-          <div class="card-header jiro">
-            <div style="display: flex; justify-content: space-between;">
-            <a class="card-link text-danger" data-toggle="collapse" data-parent="#parent-card-1" href="#card-element-1">
-              <button class="btn btn-danger ">食事履歴</button>
-            </a>
-            <a class="card-link">
-              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-primary" %>
-            </a>
-            </div>
-          </div>
-          <div id="card-element-1" class="collapse show">
-            <div class="card-body">
-              <table class="table border border-danger">
-                <thead>
-                  <tr>
-                    <th>店舗</th>
-                    <th>メニュー</th>
-                    <th>日付</th>
-                  </tr>
-                </thead>
-                <tbody id="activites_list">
-                  <% @activities.each_with_index do |a, i|%>
-                    <tr>
-                      <th><%= Store.find(a.store_id).name %></th>
-                      <th><%= Menu.find(a.menu_id).name %></th>
-                      <th><%= a.created_at.strftime("%Y/%m/%d %H:%M:%S") %></th>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="jiro--list">
+    <div class="jiro--list--title">あなたの食事履歴</div>
+    <div class="jiro--list--cation">
+      <%= link_to 'もっと詳しく見る', new_user_path, class: "btn btn-warning" %>
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>店舗</th>
+          <th>メニュー</th>
+          <th>日付</th>
+        </tr>
+      </thead>
+      <tbody id="activites_list">
+        <% @activities.each_with_index do |a, i|%>
+          <tr>
+            <th><%= Store.find(a.store_id).name %></th>
+            <th><%= Menu.find(a.menu_id).name %></th>
+            <th><%= a.created_at.strftime("%Y/%m/%d %H:%M:%S") %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 
-
-  <div class="row">
-    <div class="col-md-12">
-      <div id="parent-card-2">
-        <div class="card jiro">
-          <div class="card-header jiro">
-            <div style="display: flex; justify-content: space-between;">
-            <a class="card-link" data-toggle="collapse" data-parent="#parent-card-2" href="#card-element-2">
-              <button class="btn btn-danger">称号履歴</button>
-            </a>
-            <a class="card-link">
-              <%= link_to '詳細', new_user_path, remote: true, class: "btn btn-primary" %>
-            </a>
-            </div>
-          </div>
-          <div id="card-element-2" class="collapse show">
-            <div class="card-body">
-              <table class="table border border-danger">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>称号</th>
-                    <th>取得日付</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>1</th>
-                    <th>初二郎！</th>
-                    <th>2018/05/18</th>
-                  </tr>
-                  <tr>
-                    <th>2</th>
-                    <th>池袋店踏破！</th>
-                    <th>2018/05/18</th>
-                  </tr>
-                  <tr>
-                    <th>3</th>
-                    <th>新宿店踏破！</th>
-                    <th>2018/05/31</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="jiro--list">
+    <div class="jiro--list--title">あなたの称号履歴</div>
+    <div class="jiro--list--cation">
+      <%= link_to 'もっと詳しく見る', new_user_path, class: "btn btn-warning" %>
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>称号</th>
+          <th>取得日付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>初二郎！</th>
+          <th>2018/05/18</th>
+        </tr>
+        <tr>
+          <th>池袋店踏破！</th>
+          <th>2018/05/18</th>
+        </tr>
+        <tr>
+          <th>新宿店踏破！</th>
+          <th>2018/05/31</th>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

@@ -8,6 +8,6 @@ class SessionsController < ApplicationController
     user = User.find_for_google(auth_hash)
     session[:user_id] = user.id
     flash[:success] = 'ログインに成功しました'
-    redirect_to root_ur
+    redirect_to root_url
   end
 end

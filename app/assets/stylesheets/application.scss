@@ -52,6 +52,12 @@ body {
   font-weight: 600;
   text-align: center;
   margin-bottom: 12px;
+
+  &--description {
+    font-size: 10px;
+    font-weight: 300;
+    color: #4F4F4F;
+  }
 }
 
 .page-head {

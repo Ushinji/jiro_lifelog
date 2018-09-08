@@ -1,10 +1,11 @@
-<div class="jiro">
+<div class="container">
+
   <%= render 'counter_pannels' %>
   
-  <div class="jiro--list">
-    <div class="jiro--list--title">あなたの食事履歴</div>
-    <div class="jiro--list--cation">
-      <%= link_to 'もっと詳しく見る', new_user_path, class: "btn btn-warning" %>
+  <div class="list">
+    <div class="list--title">あなたの食事履歴</div>
+    <div class="list--cation">
+      <%= link_to '詳細', new_user_path, class: "btn btn-warning" %>
     </div>
     <table class="table">
       <thead>
@@ -26,10 +27,10 @@
     </table>
   </div>
 
-  <div class="jiro--list">
-    <div class="jiro--list--title">あなたの称号履歴</div>
-    <div class="jiro--list--cation">
-      <%= link_to 'もっと詳しく見る', new_user_path, class: "btn btn-warning" %>
+  <div class="list">
+    <div class="list--title">あなたの称号履歴</div>
+    <div class="list--cation">
+      <%= link_to '詳細', new_user_path, class: "btn btn-warning" %>
     </div>
     <table class="table">
       <thead>

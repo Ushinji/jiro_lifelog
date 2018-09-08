@@ -39,67 +39,113 @@
 
 .pmd-floating-action-btn .ink{ width:50px; height:50px; }
 
-.jiro { 
+
+body {
   background-color: #f8f8f8;
+}
+
+.header {
+  padding: 8px;
+  font-size: 28px;
+  color: #4F4F4F;
+  background-color: #FFE600;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+
+  &--description {
+    font-size: 10px;
+    font-weight: 300;
+    color: #4F4F4F;
+  }
+}
+
+.page-head {
+  background-color: #fff;
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid #f1f1f1;
+  text-align: center;
+}
+
+.counter {
+  background-color: #fff;
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #f1f1f1;
 
   &--header {
-    padding: 20px;
-    font-size: 24px;
+    font-size: 16px;
     color: #343a40;
-    background-color: #FFE600;
-    margin-bottom: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
   }
 
-  &--pannel{
+  &--body {
     display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 40px;
-    margin: 20px 20px 60px 20px;
 
     &--item{
-      width: 300px;
-      height: 300px;
-      padding: 20px;
+      width: 32%;
+      padding: 12px;
       background-color: #FFF280;
 
       &--title {
-        font-size: 20px;
+        font-size: 0.5rem;
         color: #343a40;
       }
 
       &--body {
-        padding: 20px 20px;
         text-align: center;
-        font-size:64px;
+        font-size: 1.5rem;
         color: red;
         font-weight: bold;
       }
 
       &--unit {
-        font-size: 32px;
+        font-size: 0.5rem;
         text-align: right;
         color: red;
       }
     }
+
+    &--spacer {
+      display: block;
+      width: 2%;
+      height: 1px;
+    }
+  }
+}
+
+.container { 
+  width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 480px) {
+  .container { 
+    width: 100%;
+  }
+}
+
+.list {
+  margin-bottom: 40px;
+  background-color: white;
+  padding: 12px;
+  border: 1px solid #f1f1f1;
+  font-size: 0.5rem;
+
+  &--title {
+    font-size: 16px;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 16px;
   }
 
-  &--list {
-    margin: 20px 40px;
-    background-color: white;
-    padding: 40px;
-
-    &--title {
-      font-size: 32px;
-      color: #343a40;
-      font-weight: bold;
-      margin-bottom: 36px;
-    }
-
-    &--cation {
-      text-align: right;
-      margin-bottom: 8px;
-    }
+  &--cation {
+    text-align: right;
+    margin-bottom: 8px;
   }
 }
 

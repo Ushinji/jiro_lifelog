@@ -19,6 +19,21 @@ services:
       - db
     ports:
       - "3000:3000"
+  frontend:
+    build:
+      context: "./"
+      target: "base"
+    env_file:
+      - .env
+    command: [ "npm", "start" ]
+    volumes:
+      - ".:/app"
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - app
+    ports:
+      - "4000:4000"
   db:
     image: mysql:5.7
     environment:

@@ -1,6 +1,6 @@
-import Top from './Top';
-import Hello from './Hello';
-import Counter from './Counter';
+import Top from './pages/Top';
+import Hello from './pages/Hello';
+import Counter from './pages/Counter';
 
 export default [
   {

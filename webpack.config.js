@@ -29,6 +29,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader']
+      },
     ]
   },
   plugins: [new ManifestPlugin(), new VueLoaderPlugin()],

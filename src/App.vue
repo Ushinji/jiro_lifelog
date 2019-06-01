@@ -1,8 +1,14 @@
 <template>
   <div>
-    <p>Hello, Vue World!</p>
+    <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+};
+</script>
 
 <style>
 body{

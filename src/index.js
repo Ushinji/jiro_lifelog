@@ -1,8 +1,13 @@
 import Vue from 'vue'
-import App from './App'
+import VueRouter from 'vue-router';
+import App from './App';
+import routes from './routes';
+
+Vue.use(VueRouter);
+const router = new VueRouter({ routes });
 
 new Vue({
   el: '#root',
-  components: { App },
-  template: '<app/>',
-})
+  router,
+  render: h => h(App),
+});

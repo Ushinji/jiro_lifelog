@@ -1,6 +1,6 @@
 FROM node:12.3.1 as node
 
-FROM ruby:2.5.1 as base
+FROM ruby:2.6.3 as base
 ENV LANG C.UTF-8
 ENV APP_ROOT=/app
 ENV NODE_VERSION 11.13.0

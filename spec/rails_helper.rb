@@ -31,6 +31,10 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # MEMO: FactoryBotの記載を省略する設定
+  # Example: user = FactoryBot.create(:user) -> user = create(:user)
+  config.include FactoryBot::Syntax::Methods
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

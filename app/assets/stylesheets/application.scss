@@ -22,17 +22,22 @@ body {
 
 .header {
   padding: 8px;
-  font-size: 28px;
-  color: #4F4F4F;
   background-color: #FFE600;
-  font-weight: 600;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+.logo {
+  color: #4F4F4F;
+  
+  &--main {
+  font-size: 28px;
+  font-weight: 600;
+  }
 
   &--description {
     font-size: 10px;
     font-weight: 300;
-    color: #4F4F4F;
   }
 }
 

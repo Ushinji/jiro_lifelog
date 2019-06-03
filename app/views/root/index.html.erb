@@ -57,14 +57,6 @@
   </div>
 </div>
 
+<%= link_to '追加', new_activity_path, remote: true, class: "floating-action-button" %>
 
-<!-- ボタンは最後にしないと優先順の関係で隠れる -->
-<!-- ここからとった https://propeller.in/components/floating-button.php -->
-<!-- Default circle button with ripple effect -->
-<!-- Floating Action Button like Google Material -->
-<div class="menu pmd-floating-action"  role="navigation"> 
-	<a class=""  href="javascript:void(0);"> 
-  <%= link_to '追加', new_activity_path, remote: true, class: "pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger", remote: true, style: "line-height: 44px; border-radius: 50%; height: 60px; width: 60px;" %>
-	</a>
-</div>
 <div id="activity-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout 'no_header'
+
   def login
   end
 

@@ -6,6 +6,16 @@
   * windowsの場合は、`docker for windows`をインストール
     * [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
 
+* `.env`ファイルをルートディレクトリに作成
+  * 環境変数はGoogleAPIのClientIdとSecretの２つ
+  * 値は知っている人に聞くこと
+
+```
+// .envファイルの内容形式
+GOOGLE_CLIENT_ID=~~~
+GOOGLE_CLIENT_SECRET=~~~
+```
+
 * 開発環境構築スクリプトを実行
 
 ```
@@ -45,5 +55,5 @@ bin/rails s
 
 | 環境変数名 | デフォルト | 説明 |
 |:-----------|------------:|:------------|
-| GOOGLE_CLIENT_ID |  | Googleログインの為のClientID |
-| GOOGLE_CLIENT_SECRET |  |Googleログインの為のClientシークレット |
+| GOOGLE_CLIENT_ID |  | Googleログインの為のClientID |
+| GOOGLE_CLIENT_SECRET |  | Googleログインの為のClientシークレット |

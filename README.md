@@ -30,6 +30,26 @@ jiro_lifelog_db_1    docker-entrypoint.sh mysqld      Up      0.0.0.0:3316->3306
 
 * `http://localhost:3000/login` へアクセス
 
+# テストの実行
+* Rspecによるテストが実行できます。
+* テストコマンドは以下の２つ
+  * 「bundle exec経由の実行」は、起動は遅いですが、起動後のテスト実行が早いのが特徴
+  * 「springでpreloadingして実行」は、２回目以降はpreloadingしているので起動が早いのが特徴です
+* ただ、`bin/rspec`をする場合は、docker-composeコマンド実行後にspringプロセスが終了してしまうので、preloadingの効果を得ることができません(泣)
+  * なので、docker-compose runでコンテナを起動し、それにアタッチした上で実行した方が良いです
+
+```
+// bundle exec経由の実行
+$ docker-compose run --rm -e RAILS_ENV=test app bundle exec rspec 
+
+// springでpreloadingして実行
+$ docker-compose run --rm app bin/rspec spec
+
+// 一度コンテナ起動、アタッチした上でspringを使う場合
+$ docker-compose run --rm app bash
+root@ab5a56adb191:/app# bin/rspec spec
+```
+
 # Dockerなしで開発環境構築
 
 ## ビルド

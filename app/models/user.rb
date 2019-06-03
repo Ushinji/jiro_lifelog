@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :activities
+  
+  validates :name, presence: true
+  validates :email, presence: true
 
   class << self
     def find_for_google(auth_hash)

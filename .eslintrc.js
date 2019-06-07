@@ -6,9 +6,10 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: ['plugin:vue/recommended', 'airbnb-base'],
+  extends: ['plugin:vue/recommended', 'airbnb-base', 'prettier'],
   plugins: [
-    'vue'
+    'vue',
+    'prettier'
   ],
   settings: {
     'import/resolver': {
@@ -18,6 +19,7 @@ module.exports = {
     }
   },
   rules: {
+    'prettier/prettier': ['error'],
     'import/extensions': ['error', 'always', {
       js: 'never',
       vue: 'never'

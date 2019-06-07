@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './components/App';
 import routes from './components/routes';
@@ -6,8 +6,9 @@ import routes from './components/routes';
 Vue.use(VueRouter);
 const router = new VueRouter({ routes });
 
-new Vue({
-  el: '#root',
+const app = new Vue({
   router,
   render: h => h(App),
 });
+
+app.$mount('#root');

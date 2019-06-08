@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="main-header">
-      <Logo />
-    </div>
+    <Header />
     <div>
       <router-view />
     </div>
@@ -10,21 +8,12 @@
 </template>
 
 <script>
-import Logo from '@/components/atoms/Logo';
+import Header from '@/components/molecules/Header';
 
 export default {
   name: 'DashboardPage',
   components: {
-    Logo,
+    Header,
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.main-header {
-  padding: 8px;
-  background-color: #ffe600;
-  text-align: center;
-  margin-bottom: 12px;
-}
-</style>

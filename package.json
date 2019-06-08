@@ -2,7 +2,7 @@
   "name": "jiro_lifelog",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --mode development --output '[name].js'",
+    "start": "webpack-dev-server --mode development --inline --output '[name].js'",
     "lint": "eslint --ext .js,.vue src",
     "precommit": "lint-staged"
   },

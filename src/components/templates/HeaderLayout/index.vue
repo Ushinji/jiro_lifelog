@@ -11,7 +11,7 @@
 import Header from '@/components/molecules/Header';
 
 export default {
-  name: 'DashboardPage',
+  name: 'HeaderLayout',
   components: {
     Header,
   },

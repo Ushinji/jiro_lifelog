@@ -1,8 +1,15 @@
-import DashboardPage from '@/components/pages/DashboardPage/index';
+import HeaderLayout from '@/components/templates/HeaderLayout';
+import DashboardPage from '@/components/pages/DashboardPage';
 
 export default [
   {
-    path: '/dashboard',
-    component: DashboardPage,
+    path: '/',
+    component: HeaderLayout,
+    children: [
+      {
+        path: '/',
+        component: DashboardPage,
+      },
+    ],
   },
 ];

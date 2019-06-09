@@ -20,6 +20,5 @@ export default {
   padding: 8px;
   background-color: #ffe600;
   text-align: center;
-  margin-bottom: 12px;
 }
 </style>

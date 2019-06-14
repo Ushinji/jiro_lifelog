@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/components/styles/table.scss';
+@import '@/components/styles/_table.scss';
 
 .header {
   padding: 24px;

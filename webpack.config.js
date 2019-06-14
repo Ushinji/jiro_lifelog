@@ -12,7 +12,7 @@ module.exports = {
     publicPath: 'http://localhost:4000/',
   },
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue', '.scss'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, 'src'),

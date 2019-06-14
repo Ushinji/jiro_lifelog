@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+  table-layout: fixed;
+  color: #495057;
+
+  th {
+    padding: 16px 24px;
+    vertical-align: bottom;
+    border-top: 1px solid #f1f1f1;
+  }
+
+  td {
+    padding: 16px 24px;
+    vertical-align: top;
+    border-top: 1px solid #f1f1f1;
+  }
+}

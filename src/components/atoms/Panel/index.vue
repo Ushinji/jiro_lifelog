@@ -11,10 +11,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/components/styles/_colors.scss';
+
 .panel {
-  background-color: white;
-  border: 1px solid #dfe1e5;
+  background-color: $white;
+  border: 1px solid $black10;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px rgba(51, 23, 20, 0.2);
+  box-shadow: 0px 0px 4px $black10;
 }
 </style>

@@ -44,12 +44,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/components/styles/_colors.scss';
 @import '@/components/styles/_table.scss';
 
 .header {
   padding: 24px;
   font-size: 14px;
-  color: #343a40;
+  color: $black80;
   font-weight: bold;
 }
 </style>

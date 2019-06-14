@@ -1,6 +1,6 @@
 <template>
   <HeaderLayout>
-    <div class="dashboard">
+    <div class="container">
       <ActivityListPanel />
     </div>
   </HeaderLayout>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  padding: 24px;
+.container {
+  padding: 24px 0;
 }
 </style>

@@ -1,18 +1,8 @@
-import Top from './pages/Top';
-import Hello from './pages/Hello';
-import Counter from './pages/Counter';
+import DashboardPage from '@/components/pages/DashboardPage';
 
 export default [
   {
     path: '/',
-    component: Top,
-  },
-  {
-    path: '/hello',
-    component: Hello,
-  },
-  {
-    path: '/counter',
-    component: Counter,
+    component: DashboardPage,
   },
 ];

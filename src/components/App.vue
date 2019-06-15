@@ -13,7 +13,9 @@ export default {
 <style>
 body {
   margin: 0;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    '游ゴシック Medium', YuGothic, YuGothicM, 'Hiragino Kaku Gothic ProN',
+    メイリオ, Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

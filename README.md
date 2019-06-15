@@ -77,3 +77,31 @@ bin/rails s
 |:-----------|------------:|:------------|
 | GOOGLE_CLIENT_ID |  | Googleログインの為のClientID |
 | GOOGLE_CLIENT_SECRET |  | Googleログインの為のClientシークレット |
+
+# Linter / Formatter
+## フロントエンド
+- フロントエンドのファイルは、以下のLinter, Formatterを導入している
+  - Linter: ESLint
+  - Formatter: Pretteir
+- 対象のファイルは、`src/~`以下のJavascript, vueのファイル
+- これらのファイルがコミットされた場合、ESLintによる修正、コードの品質チェックが自動で行われ、チェックに通った場合コミットすることができる
+  - エラーがあった場合は、修正しなければコミットできません
+- エディタでVSCodeを使っている場合、以下のESLint, prettierのプラグインを導入すると、ファイル保存時にESLint, Pretteirが実行されるようになり、より開発が加速するので、設定をすることを推奨
+  - プラグイン
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+  - 設定(vscodeのsetting.json)
+```
+{
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    { "language": "vue", "autoFix": true },
+  ],
+```
+
+## バックエンド
+- ないです

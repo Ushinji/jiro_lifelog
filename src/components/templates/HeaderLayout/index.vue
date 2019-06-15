@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div>
+    <div class="container">
       <slot />
     </div>
   </div>
@@ -17,3 +17,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  width: 580px;
+  margin: 0 auto;
+}
+</style>

@@ -16,10 +16,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/components/styles/_colors.scss';
+
 .header {
   padding: 8px;
-  background-color: #ffe600;
+  background-color: $yellow;
   text-align: center;
-  margin-bottom: 12px;
 }
 </style>

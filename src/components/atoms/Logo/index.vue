@@ -16,8 +16,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/components/styles/_colors.scss';
+
 .logo {
-  color: #4f4f4f;
+  color: $black60;
 
   &--main {
     font-size: 28px;

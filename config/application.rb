@@ -1,4 +1,6 @@
-require_relative 'boot'
+# frozen_string_literal: true
+
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -30,6 +32,6 @@ module JiroLifelog
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.time_zone = 'Tokyo'
+    config.time_zone = "Tokyo"
   end
 end

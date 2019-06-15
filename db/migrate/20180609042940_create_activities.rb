@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateActivities < ActiveRecord::Migration[5.2]
   def change
     create_table :activities do |t|
@@ -11,7 +13,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :karame, null: false
       t.string :image_url
       t.integer :calorie
-      
+
       t.timestamps
     end
   end

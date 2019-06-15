@@ -1,6 +1,7 @@
 const path = require('path');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -40,7 +41,13 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ManifestPlugin(), new VueLoaderPlugin()],
+  plugins: [
+    new ManifestPlugin(),
+    new VueLoaderPlugin(),
+    new StylelintPlugin({
+      files: ['src/**/*.vue', 'src/**/*.scss', 'src/**/*.css'],
+    }),
+  ],
   devServer: {
     contentBase: '../public/dist',
     port: 4000,

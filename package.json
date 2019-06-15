@@ -4,7 +4,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --inline --output '[name].js'",
     "lint": "eslint --ext .js,.vue src",
-    "stylelint": "prettier-stylelint --write 'src/**/*.{css,scss}'",
+    "stylelint": "prettier-stylelint --fix 'src/**/*.{css,scss,vue}'",
     "precommit": "lint-staged"
   },
   "dependencies": {

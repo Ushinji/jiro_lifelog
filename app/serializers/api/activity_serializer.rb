@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::ActivitySerializer < ActiveModel::Serializer
   attributes :id
   attributes :size

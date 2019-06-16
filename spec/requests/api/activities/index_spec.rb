@@ -30,7 +30,7 @@ describe "GET /api/activities" do
       subject
 
       res = JSON.parse(response.body)
-      
+
       expect(res.size).to eq(5)
       expect(res.map { |r| r["id"] }).to match_array(activities.map { |a| a.id })
       expect(res.map { |r| r["size"] }).to match_array(activities.map { |a| a.size })

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import fetch from 'isomorphic-fetch';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
 
@@ -15,6 +16,18 @@ export default {
   components: {
     HeaderLayout,
     ActivityListPanel,
+  },
+  data() {
+    return {
+      activities: [],
+    };
+  },
+  created: async () => {
+    const res = await fetch('api/activities', {
+      credentials: 'include',
+    });
+    const data = await res.json();
+    this.activities = data;
   },
 };
 </script>

@@ -8,6 +8,8 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "isomorphic-fetch": "^2.2.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6"
   },

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import fetch from 'isomorphic-fetch';
+import { getActivites } from '@/queries/activityQuery';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
 
@@ -20,14 +20,12 @@ export default {
   data() {
     return {
       activities: [],
+      error: false,
     };
   },
   async created() {
-    const res = await fetch('api/activities', {
-      credentials: 'include',
-    });
-    const data = await res.json();
-    this.activities = data;
+    const activities = await getActivites();
+    this.activities = activities;
   },
 };
 </script>

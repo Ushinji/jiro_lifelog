@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <tr v-for="activity in activities" :key="activity.id">
-            <td>{{ activity.created_at }}</td>
+            <td>{{ activity.created_at | formatDate }}</td>
             <td>{{ activity.store_name }}</td>
             <td>{{ activity.menu_name }}</td>
           </tr>
@@ -28,12 +28,19 @@
 </template>
 
 <script>
+import moment from 'moment';
 import Panel from '@/components/atoms/Panel';
 
 export default {
   name: 'ActivityListPanel',
   components: {
     Panel,
+  },
+  filters: {
+    formatDate(date) {
+      if (!date) return '';
+      return moment(date).format('YYYY/MM/DD hh:mm:ss');
+    },
   },
   props: {
     activities: {

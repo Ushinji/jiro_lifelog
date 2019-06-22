@@ -1,7 +1,12 @@
 <template>
   <HeaderLayout>
     <div class="container">
-      <ActivityListPanel :activities="activities" />
+      <div v-if="error" class="error-message">
+        エラーが発生しました。
+      </div>
+      <div v-else>
+        <ActivityListPanel :activities="activities" />
+      </div>
     </div>
   </HeaderLayout>
 </template>
@@ -24,8 +29,12 @@ export default {
     };
   },
   async created() {
-    const activities = await getActivites();
-    this.activities = activities;
+    try {
+      const activities = await getActivites();
+      this.activities = activities;
+    } catch {
+      this.error = true;
+    }
   },
 };
 </script>
@@ -33,5 +42,10 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 24px 0;
+}
+
+.error-message {
+  text-align: center;
+  font-weight: bold;
 }
 </style>

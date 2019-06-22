@@ -25,5 +25,6 @@ module.exports = {
         vue: 'never',
       },
     ],
+    'vue/max-attributes-per-line': 'off',
   },
 };

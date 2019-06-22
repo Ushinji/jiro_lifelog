@@ -3,32 +3,27 @@
     <div class="header">
       あなたの食事履歴
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>日付</th>
-          <th>店舗</th>
-          <th>メニュー</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2019/06/01 16:28:27</td>
-          <td>三田本店</td>
-          <td>ぶた入りラーメン</td>
-        </tr>
-        <tr>
-          <td>2019/06/01 16:28:27</td>
-          <td>三田本店</td>
-          <td>ぶた入りラーメン</td>
-        </tr>
-        <tr>
-          <td>2019/06/01 16:28:27</td>
-          <td>三田本店</td>
-          <td>ぶた入りラーメン</td>
-        </tr>
-      </tbody>
-    </table>
+    <div v-if="activities.length">
+      <table>
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>店舗</th>
+            <th>メニュー</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="activity in activities" :key="activity.id">
+            <td>{{ activity.created_at }}</td>
+            <td>{{ activity.store_name }}</td>
+            <td>{{ activity.menu_name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div v-else>
+      活動履歴はありません。
+    </div>
   </Panel>
 </template>
 
@@ -39,6 +34,12 @@ export default {
   name: 'ActivityListPanel',
   components: {
     Panel,
+  },
+  props: {
+    activities: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>

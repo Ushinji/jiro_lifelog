@@ -1,7 +1,7 @@
 <template>
   <HeaderLayout>
     <div class="container">
-      <ActivityListPanel />
+      <ActivityListPanel :activities="activities" />
     </div>
   </HeaderLayout>
 </template>

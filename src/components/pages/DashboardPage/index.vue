@@ -22,7 +22,7 @@ export default {
       activities: [],
     };
   },
-  created: async () => {
+  async created() {
     const res = await fetch('api/activities', {
       credentials: 'include',
     });

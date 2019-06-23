@@ -21,8 +21,8 @@
         </tbody>
       </table>
     </div>
-    <div v-else>
-      活動履歴はありません。
+    <div v-else class="no-activity">
+      まだ、活動履歴はありません。
     </div>
   </Panel>
 </template>
@@ -60,5 +60,11 @@ export default {
   font-size: 14px;
   color: $black80;
   font-weight: bold;
+}
+
+.no-activity {
+  padding: 0 24px 24px 24px;
+  font-size: 14px;
+  color: $black80;
 }
 </style>

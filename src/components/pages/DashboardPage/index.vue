@@ -1,9 +1,7 @@
 <template>
   <HeaderLayout>
     <div class="container">
-      <div v-if="error" class="error-message">
-        エラーが発生しました。
-      </div>
+      <ErrorPage v-if="error" />
       <div v-else>
         <ActivityListPanel :activities="activities" />
       </div>
@@ -15,12 +13,14 @@
 import { getActivites } from '@/queries/activityQuery';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
+import ErrorPage from '@/components/organisms/ErrorPage';
 
 export default {
   name: 'DashboardPage',
   components: {
     HeaderLayout,
     ActivityListPanel,
+    ErrorPage,
   },
   data() {
     return {
@@ -42,10 +42,5 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 24px 0;
-}
-
-.error-message {
-  text-align: center;
-  font-weight: bold;
 }
 </style>

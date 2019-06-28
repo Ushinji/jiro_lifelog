@@ -71,10 +71,10 @@ describe "GET /api/activities" do
       expect(json["ninniku"].present?).to eq(true)
       expect(json["abura"].present?).to eq(true)
       expect(json["karame"].present?).to eq(true)
-      expect(json["store_name"].present?).to eq(true)
-      expect(json["menu_name"].present?).to eq(true)
-      expect(json["created_at"].present?).to eq(true)
-      expect(json["updated_at"].present?).to eq(true)
+      expect(json["storeName"].present?).to eq(true)
+      expect(json["menuName"].present?).to eq(true)
+      expect(json["createdAt"].present?).to eq(true)
+      expect(json["updatedAt"].present?).to eq(true)
     end
   end
 

@@ -50,16 +50,16 @@ describe "GET /api/activities" do
       expect(res.map { |r| r["karame"] }).to match_array(
         activities.map { |a| a.karame }
       )
-      expect(res.map { |r| r["created_at"] }).to match_array(
+      expect(res.map { |r| r["createdAt"] }).to match_array(
         activities.map { |a| a.created_at }
       )
-      expect(res.map { |r| r["updated_at"] }).to match_array(
+      expect(res.map { |r| r["updatedAt"] }).to match_array(
         activities.map { |a| a.updated_at }
       )
-      expect(res.map { |r| r["store_name"] }).to match_array(
+      expect(res.map { |r| r["storeName"] }).to match_array(
         (0..4).map { |_| store.name }
       )
-      expect(res.map { |r| r["menu_name"] }).to match_array(
+      expect(res.map { |r| r["menuName"] }).to match_array(
         (0..4).map { |_| menu.name }
       )
     end

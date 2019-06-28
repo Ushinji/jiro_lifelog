@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/auth/google/callback", to: "sessions#callback"
 
   namespace :api do
-    resources :activities, only: [:index]
+    resources :activities, only: [:index, :create]
   end
 
   root to: "dashboard#index"

@@ -12,7 +12,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_610_013_844) do
+ActiveRecord::Schema.define(version: 2019_06_28_112048) do
+
   create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "store_id", null: false
@@ -22,8 +23,8 @@ ActiveRecord::Schema.define(version: 20_180_610_013_844) do
     t.string "ninniku", null: false
     t.string "abura", null: false
     t.string "karame", null: false
-    t.string "image_url"
-    t.integer "calorie"
+    t.string "image_url", default: "", null: false
+    t.integer "calorie", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_activities_on_user_id"
@@ -48,4 +49,5 @@ ActiveRecord::Schema.define(version: 20_180_610_013_844) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
 end

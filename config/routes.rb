@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :activities, only: [:index]
   end
 
-  get "hoge", to: "root#index"
-
   root to: "dashboard#index"
   match "*any", to: "dashboard#index", via: :all
 end

@@ -6,6 +6,13 @@
       <div v-else>
         <ActivityListPanel :activities="activities" />
       </div>
+      <button type="button" @click="openModal">
+        モーダルを開く
+      </button>
+      <button type="button" @click="closeModal">
+        モーダルを閉じる
+      </button>
+      <ActivityFormPanel v-if="isOpenModal" />
     </div>
   </HeaderLayout>
 </template>
@@ -14,6 +21,7 @@
 import { getActivites } from '@/queries/activityQuery';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
+import ActivityFormPanel from '@/components/organisms/ActivityFormPanel';
 import ErrorPage from '@/components/organisms/ErrorPage';
 import Loading from '@/components/molecules/Loading';
 
@@ -22,12 +30,14 @@ export default {
   components: {
     HeaderLayout,
     ActivityListPanel,
+    ActivityFormPanel,
     ErrorPage,
     Loading,
   },
   data() {
     return {
       activities: [],
+      isOpenModal: false,
       error: false,
       loading: false,
     };
@@ -42,6 +52,14 @@ export default {
       this.error = true;
       this.loading = false;
     }
+  },
+  methods: {
+    openModal() {
+      this.isOpenModal = true;
+    },
+    closeModal() {
+      this.isOpenModal = false;
+    },
   },
 };
 </script>

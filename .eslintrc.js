@@ -27,5 +27,13 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'vue/max-attributes-per-line': 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+        },
+      },
+    ],
   },
 };

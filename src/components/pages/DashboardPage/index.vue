@@ -12,7 +12,9 @@
       <button type="button" @click="closeModal">
         モーダルを閉じる
       </button>
-      <ActivityFormPanel v-if="isOpenModal" />
+      <Modal v-if="isOpenModal">
+        <ActivityFormPanel />
+      </Modal>
     </div>
   </HeaderLayout>
 </template>
@@ -24,6 +26,7 @@ import ActivityListPanel from '@/components/organisms/ActivityListPanel';
 import ActivityFormPanel from '@/components/organisms/ActivityFormPanel';
 import ErrorPage from '@/components/organisms/ErrorPage';
 import Loading from '@/components/molecules/Loading';
+import Modal from '@/components/atoms/Modal';
 
 export default {
   name: 'DashboardPage',
@@ -33,6 +36,7 @@ export default {
     ActivityFormPanel,
     ErrorPage,
     Loading,
+    Modal,
   },
   data() {
     return {

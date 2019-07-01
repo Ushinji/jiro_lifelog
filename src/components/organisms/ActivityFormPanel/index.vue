@@ -1,5 +1,7 @@
 <template>
-  <Panel>Activity新規作成フォーム</Panel>
+  <Panel>
+    活動記録を作成する
+  </Panel>
 </template>
 
 <script>

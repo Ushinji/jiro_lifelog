@@ -7,6 +7,17 @@
       <form>
         <div class="form--field-group">
           <div class="field-label">
+            店名
+          </div>
+          <SelectField
+            v-model="storeId"
+            label="店名を選択"
+            :options="storeOptions"
+          />
+        </div>
+
+        <div class="form--field-group">
+          <div class="field-label">
             麺の量
           </div>
           <SelectField
@@ -63,7 +74,12 @@ export default {
     Panel,
     SelectField,
   },
-  props: {},
+  props: {
+    stores: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       storeId: '',
@@ -76,6 +92,15 @@ export default {
     };
   },
   computed: {
+    storeOptions() {
+      return this.stores.map(store => {
+        return {
+          id: store.id,
+          value: store.id,
+          label: store.name,
+        };
+      });
+    },
     sizeOptions: () => [
       {
         id: 1,
@@ -89,6 +114,28 @@ export default {
       },
     ],
     yasaiOptions: () => [
+      {
+        id: 1,
+        value: 'small',
+        label: '小',
+      },
+      {
+        id: 2,
+        value: 'normal',
+        label: 'ノーコール',
+      },
+      {
+        id: 3,
+        value: 'large',
+        label: 'マシ',
+      },
+      {
+        id: 4,
+        value: 'mashimashi',
+        label: 'マシマシ',
+      },
+    ],
+    ninnikuOptions: () => [
       {
         id: 1,
         value: 'small',

@@ -51,6 +51,17 @@
 
         <div class="form--field-group">
           <div class="form--field-label">
+            アブラの量
+          </div>
+          <SelectField
+            v-model="abura"
+            label="アブラの量を選択"
+            :options="aburaOptions"
+          />
+        </div>
+
+        <div class="form--field-group">
+          <div class="form--field-label">
             にんにくの量
           </div>
           <SelectField

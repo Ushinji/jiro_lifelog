@@ -13,7 +13,7 @@
         モーダルを閉じる
       </button>
       <Modal v-if="isOpenModal">
-        <ActivityFormPanel :stores="stores" />
+        <ActivityFormPanel :stores="stores" :menus="menus" />
       </Modal>
     </div>
   </HeaderLayout>
@@ -22,6 +22,7 @@
 <script>
 import { getActivites } from '@/queries/activityQuery';
 import { getStores } from '@/queries/storeQuery';
+import { getMenus } from '@/queries/menuQuery';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
 import ActivityFormPanel from '@/components/organisms/ActivityFormPanel';
@@ -43,6 +44,7 @@ export default {
     return {
       activities: [],
       stores: [],
+      menus: [],
       isOpenModal: false,
       error: false,
       loading: false,
@@ -51,12 +53,14 @@ export default {
   async created() {
     try {
       this.loading = true;
-      const [activities, stores] = await Promise.all([
+      const [activities, stores, menus] = await Promise.all([
         getActivites(),
         getStores(),
+        getMenus(),
       ]);
       this.activities = activities;
       this.stores = stores;
+      this.menus = menus;
       this.loading = false;
     } catch {
       this.error = true;

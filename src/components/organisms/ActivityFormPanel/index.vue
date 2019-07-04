@@ -6,7 +6,7 @@
       </div>
       <form>
         <div class="form--field-group">
-          <div class="field-label">
+          <div class="form--field-label">
             店名
           </div>
           <SelectField
@@ -17,7 +17,18 @@
         </div>
 
         <div class="form--field-group">
-          <div class="field-label">
+          <div class="form--field-label">
+            メニュー
+          </div>
+          <SelectField
+            v-model="menuId"
+            label="メニューを選択"
+            :options="menuOptions"
+          />
+        </div>
+
+        <div class="form--field-group">
+          <div class="form--field-label">
             麺の量
           </div>
           <SelectField
@@ -79,6 +90,10 @@ export default {
       type: Array,
       required: true,
     },
+    menus: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
@@ -98,6 +113,15 @@ export default {
           id: store.id,
           value: store.id,
           label: store.name,
+        };
+      });
+    },
+    menuOptions() {
+      return this.menus.map(menu => {
+        return {
+          id: menu.id,
+          value: menu.id,
+          label: menu.name,
         };
       });
     },

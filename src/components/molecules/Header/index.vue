@@ -20,7 +20,7 @@ export default {
 
 .header {
   padding: 8px;
-  background-color: $yellow;
+  background-color: $yellow-pale;
   text-align: center;
 }
 </style>

@@ -9,11 +9,12 @@
       <button type="button" @click="openModal">
         モーダルを開く
       </button>
-      <button type="button" @click="closeModal">
-        モーダルを閉じる
-      </button>
       <Modal v-if="isOpenModal">
-        <ActivityFormPanel :stores="stores" :menus="menus" />
+        <ActivityFormPanel
+          :stores="stores"
+          :menus="menus"
+          :on-submit="addActivity"
+        />
       </Modal>
     </div>
   </HeaderLayout>
@@ -23,6 +24,7 @@
 import { getActivites } from '@/queries/activityQuery';
 import { getStores } from '@/queries/storeQuery';
 import { getMenus } from '@/queries/menuQuery';
+import { addActivity as addActivityCommand } from '@/commands/activityCommand';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
 import ActivityFormPanel from '@/components/organisms/ActivityFormPanel';
@@ -73,6 +75,26 @@ export default {
     },
     closeModal() {
       this.isOpenModal = false;
+    },
+    async addActivity(storeId, menuId, size, yasai, ninniku, abura, karame) {
+      try {
+        const newActivity = await addActivityCommand(
+          storeId,
+          menuId,
+          size,
+          yasai,
+          ninniku,
+          abura,
+          karame
+        );
+        this.activities.push(newActivity);
+        this.closeModal();
+      } catch {
+        // eslint-disable-next-line no-alert
+        alert(
+          'エラーが発生しました。お手数ですが、ページリロードしてやり直してください。'
+        );
+      }
     },
   },
 };

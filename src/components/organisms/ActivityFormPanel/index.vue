@@ -4,7 +4,7 @@
       <div class="activity-form--header">
         活動記録を作成する
       </div>
-      <form>
+      <form @submit.prevent>
         <div class="form--field-group">
           <div class="form--field-label">
             店名
@@ -81,6 +81,9 @@
             :options="karameOptions"
           />
         </div>
+        <Button type="submit" :on-click="handleSubmit">
+          作成する
+        </Button>
       </form>
     </div>
   </Panel>
@@ -88,6 +91,7 @@
 
 <script>
 import Panel from '@/components/atoms/Panel';
+import Button from '@/components/atoms/Button';
 import SelectField from '@/components/molecules/SelectField';
 
 export default {
@@ -95,6 +99,7 @@ export default {
   components: {
     Panel,
     SelectField,
+    Button,
   },
   props: {
     stores: {
@@ -103,6 +108,10 @@ export default {
     },
     menus: {
       type: Array,
+      required: true,
+    },
+    onSubmit: {
+      type: Function,
       required: true,
     },
   },
@@ -170,6 +179,33 @@ export default {
         label: 'マシマシ',
       },
     ],
+    aburaOptions: () => [
+      {
+        id: 1,
+        value: 'small',
+        label: '小',
+      },
+      {
+        id: 2,
+        value: 'normal',
+        label: 'ノーコール',
+      },
+      {
+        id: 3,
+        value: 'large',
+        label: 'マシ',
+      },
+      {
+        id: 4,
+        value: 'mashimashi',
+        label: 'マシマシ',
+      },
+      {
+        id: 5,
+        value: 'crazy',
+        label: 'ザブトン',
+      },
+    ],
     ninnikuOptions: () => [
       {
         id: 1,
@@ -214,6 +250,19 @@ export default {
         label: 'マシマシ',
       },
     ],
+  },
+  methods: {
+    handleSubmit() {
+      this.onSubmit(
+        this.storeId,
+        this.menuId,
+        this.size,
+        this.yasai,
+        this.ninniku,
+        this.abura,
+        this.karame
+      );
+    },
   },
 };
 </script>

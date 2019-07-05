@@ -31,16 +31,6 @@ export default {
   },
   computed: {},
 };
-
-/*
-<div class="input-field">
-    <label>店名</label>
-    <input v-model="form.storeName.value" />
-    <div v-if="form.storeName.isError" class="input-field--error-msg">
-    {{ form.storeName.errorMessage }}
-    </div>
-</div>
-*/
 </script>
 
 <style lang="scss" scoped>

@@ -14,9 +14,9 @@
         </thead>
         <tbody>
           <tr v-for="activity in activities" :key="activity.id">
-            <td>{{ activity.created_at | formatDate }}</td>
-            <td>{{ activity.store_name }}</td>
-            <td>{{ activity.menu_name }}</td>
+            <td>{{ activity.createdAt | formatDate }}</td>
+            <td>{{ activity.storeName }}</td>
+            <td>{{ activity.menuName }}</td>
           </tr>
         </tbody>
       </table>

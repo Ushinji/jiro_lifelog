@@ -7,19 +7,31 @@ class Api::ActivitySerializer < ActiveModel::Serializer
   attributes :ninniku
   attributes :abura
   attributes :karame
-  attributes :image_url
   attributes :calorie
-  attributes :created_at
-  attributes :updated_at
 
-  attributes :store_name
-  attributes :menu_name
+  attributes :storeName
+  attributes :menuName
+  attributes :imageUrl
+  attributes :createdAt
+  attributes :updatedAt
 
-  def store_name
+  def storeName
     object.store.name
   end
 
-  def menu_name
+  def menuName
     object.menu.name
+  end
+
+  def imageUrl
+    object.image_url
+  end
+
+  def createdAt
+    object.created_at
+  end
+
+  def updatedAt
+    object.updated_at
   end
 end

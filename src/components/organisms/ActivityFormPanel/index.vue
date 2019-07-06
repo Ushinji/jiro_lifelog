@@ -14,7 +14,7 @@
             label="店名を選択"
             error-label="選択をしてください"
             :options="storeOptions"
-            :validate="value => value !== ''"
+            :validate="validateStoreId"
           />
         </div>
 
@@ -27,7 +27,7 @@
             label="メニューを選択"
             error-label="選択をしてください"
             :options="menuOptions"
-            :validate="value => value !== ''"
+            :validate="validateMenuId"
           />
         </div>
 
@@ -40,7 +40,7 @@
             label="麺の量を選択"
             error-label="選択をしてください"
             :options="sizeOptions"
-            :validate="value => value !== ''"
+            :validate="validateSize"
           />
         </div>
 
@@ -53,7 +53,7 @@
             label="野菜の量を選択"
             error-label="選択をしてください"
             :options="yasaiOptions"
-            :validate="value => value !== ''"
+            :validate="validateYasai"
           />
         </div>
 
@@ -66,7 +66,7 @@
             label="アブラの量を選択"
             error-label="選択をしてください"
             :options="aburaOptions"
-            :validate="value => value !== ''"
+            :validate="validateAbura"
           />
         </div>
 
@@ -79,7 +79,7 @@
             label="にんにくの量を選択"
             error-label="選択をしてください"
             :options="ninnikuOptions"
-            :validate="value => value !== ''"
+            :validate="validateNinniku"
           />
         </div>
 
@@ -92,7 +92,7 @@
             label="カラシの量を選択"
             error-label="選択をしてください"
             :options="karameOptions"
-            :validate="value => value !== ''"
+            :validate="validateKarame"
           />
         </div>
         <Button type="submit" :on-click="handleSubmit">
@@ -287,16 +287,50 @@ export default {
     ],
   },
   methods: {
-    handleSubmit() {
-      this.onSubmit(
-        this.storeId,
-        this.menuId,
-        this.size,
-        this.yasai,
-        this.ninniku,
-        this.abura,
-        this.karame
+    validateStoreId(value) {
+      return value !== '';
+    },
+    validateMenuId(value) {
+      return value !== '';
+    },
+    validateSize(value) {
+      return value !== '';
+    },
+    validateYasai(value) {
+      return value !== '';
+    },
+    validateAbura(value) {
+      return value !== '';
+    },
+    validateNinniku(value) {
+      return value !== '';
+    },
+    validateKarame(value) {
+      return value !== '';
+    },
+    validateForm() {
+      return (
+        !this.storeId.isError &&
+        !this.menuId.isError &&
+        !this.size.isError &&
+        !this.yasai.isError &&
+        !this.abura.isError &&
+        !this.ninniku.isError &&
+        !this.karame.isError
       );
+    },
+    handleSubmit() {
+      if (this.validateForm()) {
+        this.onSubmit(
+          this.storeId,
+          this.menuId,
+          this.size,
+          this.yasai,
+          this.ninniku,
+          this.abura,
+          this.karame
+        );
+      }
     },
   },
 };

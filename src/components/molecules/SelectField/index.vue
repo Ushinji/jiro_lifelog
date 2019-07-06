@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="select-field">
     <select @focus="onFocus" @change="onChange">
       <option value.value="" hidden>
         {{ label }}
@@ -8,9 +8,11 @@
         {{ option.label }}
       </option>
     </select>
-    <p v-if="isError">
-      {{ errorLabel }}
-    </p>
+    <div class="position-relative">
+      <div class="error-message">
+        {{ isError ? errorLabel : '' }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -66,10 +68,28 @@ export default {
 <style lang="scss" scoped>
 @import '@/components/styles/_colors.scss';
 
+.select-field {
+  margin-bottom: 40px;
+}
+
 select {
-  font-size: 14px;
-  padding: 8px 16px;
+  font-size: 12px;
+  padding: 8px 12px;
   border: 1px solid $black10;
   -webkit-appearance: none;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.error-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  color: red;
 }
 </style>

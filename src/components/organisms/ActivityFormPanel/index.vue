@@ -12,7 +12,7 @@
           <SelectField
             v-model="storeId"
             label="店名を選択"
-            error-label="選択をしてください"
+            error-label="店名を選択をしてください"
             :options="storeOptions"
             :validate="validateStoreId"
           />
@@ -25,7 +25,7 @@
           <SelectField
             v-model="menuId"
             label="メニューを選択"
-            error-label="選択をしてください"
+            error-label="メニューを選択をしてください"
             :options="menuOptions"
             :validate="validateMenuId"
           />
@@ -38,7 +38,7 @@
           <SelectField
             v-model="size"
             label="麺の量を選択"
-            error-label="選択をしてください"
+            error-label="麺の量を選択をしてください"
             :options="sizeOptions"
             :validate="validateSize"
           />
@@ -51,7 +51,7 @@
           <SelectField
             v-model="yasai"
             label="野菜の量を選択"
-            error-label="選択をしてください"
+            error-label="野菜の量を選択をしてください"
             :options="yasaiOptions"
             :validate="validateYasai"
           />
@@ -64,7 +64,7 @@
           <SelectField
             v-model="abura"
             label="アブラの量を選択"
-            error-label="選択をしてください"
+            error-label="アブラの量を選択をしてください"
             :options="aburaOptions"
             :validate="validateAbura"
           />
@@ -77,7 +77,7 @@
           <SelectField
             v-model="ninniku"
             label="にんにくの量を選択"
-            error-label="選択をしてください"
+            error-label="にんにくの量を選択をしてください"
             :options="ninnikuOptions"
             :validate="validateNinniku"
           />
@@ -90,7 +90,7 @@
           <SelectField
             v-model="karame"
             label="カラシの量を選択"
-            error-label="選択をしてください"
+            error-label="カラシの量を選択をしてください"
             :options="karameOptions"
             :validate="validateKarame"
           />

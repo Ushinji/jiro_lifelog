@@ -73,7 +73,7 @@ export default {
     },
     async addActivity(storeId, menuId, size, yasai, ninniku, abura, karame) {
       try {
-        const newActivity = await addActivityCommand(
+        await addActivityCommand(
           storeId,
           menuId,
           size,
@@ -82,7 +82,8 @@ export default {
           abura,
           karame
         );
-        this.activities.push(newActivity);
+        const activites = await getActivites();
+        this.activities = activites;
         this.closeModal();
       } catch {
         // eslint-disable-next-line no-alert

@@ -97,10 +97,10 @@
         </div>
         <Button
           type="submit"
-          :disabled="!validateForm()"
+          :disabled="!validateForm() || isLoading"
           :on-click="handleSubmit"
         >
-          作成する
+          {{ isLoading ? '送信中...' : '作成する' }}
         </Button>
       </form>
     </div>
@@ -163,6 +163,7 @@ export default {
         value: '',
         isError: true,
       },
+      isLoading: false,
     };
   },
   computed: {
@@ -323,9 +324,16 @@ export default {
         !this.karame.isError
       );
     },
-    handleSubmit() {
+    startLoding() {
+      this.isLoading = true;
+    },
+    finishLoding() {
+      this.isLoading = false;
+    },
+    async handleSubmit() {
       if (this.validateForm()) {
-        this.onSubmit(
+        this.startLoding();
+        await this.onSubmit(
           this.storeId.value,
           this.menuId.value,
           this.size.value,
@@ -334,6 +342,7 @@ export default {
           this.abura.value,
           this.karame.value
         );
+        this.finishLoding();
       }
     },
   },

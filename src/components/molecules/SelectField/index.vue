@@ -90,6 +90,6 @@ select {
   top: 0;
   left: 0;
   font-size: 14px;
-  color: red;
+  color: $red;
 }
 </style>

@@ -13,6 +13,7 @@
         <ActivityFormPanel
           :activity-params="activityParams"
           :on-submit="addActivity"
+          :on-close="closeModal"
         />
       </Modal>
     </div>

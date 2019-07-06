@@ -97,6 +97,7 @@
         </div>
         <Button
           type="submit"
+          button-style="primary"
           :disabled="!validateForm() || isLoading"
           :on-click="handleSubmit"
         >

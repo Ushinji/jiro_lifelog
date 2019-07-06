@@ -4,7 +4,7 @@ class Api::ActivitiesController < Api::ApplicationController
   before_action :check_login
 
   def index
-    activities = Activity.includes(:store).includes(:menu).where(user_id: current_user.id)
+    activities = Activity.includes(:store).includes(:menu).where(user_id: current_user.id).order(created_at: "DESC")
     render json: activities
   end
 

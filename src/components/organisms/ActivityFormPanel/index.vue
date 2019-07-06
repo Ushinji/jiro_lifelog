@@ -309,6 +309,8 @@ export default {
 .activity-form {
   padding: 16px;
   width: 480px;
+  height: 600px;
+  overflow-y: scroll;
 
   &--header {
     font-size: 16px;

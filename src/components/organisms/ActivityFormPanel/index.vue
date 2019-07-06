@@ -326,13 +326,13 @@ export default {
     handleSubmit() {
       if (this.validateForm()) {
         this.onSubmit(
-          this.storeId,
-          this.menuId,
-          this.size,
-          this.yasai,
-          this.ninniku,
-          this.abura,
-          this.karame
+          this.storeId.value,
+          this.menuId.value,
+          this.size.value,
+          this.yasai.value,
+          this.ninniku.value,
+          this.abura.value,
+          this.karame.value
         );
       }
     },

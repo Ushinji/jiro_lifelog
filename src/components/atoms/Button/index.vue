@@ -54,6 +54,7 @@ export default {
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid transparent;
+  transition: 0.3s;
 
   &:hover {
     background-color: $black10;

@@ -18,7 +18,7 @@ export const addActivity = async (
     abura,
     karame,
     calorie: 0,
-    imageUrl: '',
+    imageUrl: 'TEST_INVALID_URL',
   };
   const res = await fetch('api/activities', {
     method: 'POST',

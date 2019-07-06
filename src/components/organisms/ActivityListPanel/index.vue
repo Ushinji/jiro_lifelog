@@ -13,10 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="activity in limitedActivities(activities)"
-            :key="activity.id"
-          >
+          <tr v-for="activity in activities" :key="activity.id">
             <td>{{ activity.createdAt | formatDate }}</td>
             <td>{{ activity.storeName }}</td>
             <td>{{ activity.menuName }}</td>
@@ -49,11 +46,6 @@ export default {
     activities: {
       type: Array,
       required: true,
-    },
-  },
-  methods: {
-    limitedActivities(activities) {
-      return activities.slice(0, 5);
     },
   },
 };

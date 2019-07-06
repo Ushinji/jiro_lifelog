@@ -12,7 +12,9 @@
           <SelectField
             v-model="storeId"
             label="店名を選択"
+            error-label="選択をしてください"
             :options="storeOptions"
+            :validate="value => value !== ''"
           />
         </div>
 
@@ -23,7 +25,9 @@
           <SelectField
             v-model="menuId"
             label="メニューを選択"
+            error-label="選択をしてください"
             :options="menuOptions"
+            :validate="value => value !== ''"
           />
         </div>
 
@@ -34,7 +38,9 @@
           <SelectField
             v-model="size"
             label="麺の量を選択"
+            error-label="選択をしてください"
             :options="sizeOptions"
+            :validate="value => value !== ''"
           />
         </div>
 
@@ -45,7 +51,9 @@
           <SelectField
             v-model="yasai"
             label="野菜の量を選択"
+            error-label="選択をしてください"
             :options="yasaiOptions"
+            :validate="value => value !== ''"
           />
         </div>
 
@@ -56,7 +64,9 @@
           <SelectField
             v-model="abura"
             label="アブラの量を選択"
+            error-label="選択をしてください"
             :options="aburaOptions"
+            :validate="value => value !== ''"
           />
         </div>
 
@@ -67,7 +77,9 @@
           <SelectField
             v-model="ninniku"
             label="にんにくの量を選択"
+            error-label="選択をしてください"
             :options="ninnikuOptions"
+            :validate="value => value !== ''"
           />
         </div>
 
@@ -78,7 +90,9 @@
           <SelectField
             v-model="karame"
             label="カラシの量を選択"
+            error-label="選択をしてください"
             :options="karameOptions"
+            :validate="value => value !== ''"
           />
         </div>
         <Button type="submit" :on-click="handleSubmit">
@@ -117,13 +131,34 @@ export default {
   },
   data() {
     return {
-      storeId: '',
-      menuId: '',
-      size: '',
-      yasai: '',
-      ninniku: '',
-      abura: '',
-      karame: '',
+      storeId: {
+        value: '',
+        isError: true,
+      },
+      menuId: {
+        value: '',
+        isError: true,
+      },
+      size: {
+        value: '',
+        isError: true,
+      },
+      yasai: {
+        value: '',
+        isError: true,
+      },
+      ninniku: {
+        value: '',
+        isError: true,
+      },
+      abura: {
+        value: '',
+        isError: true,
+      },
+      karame: {
+        value: '',
+        isError: true,
+      },
     };
   },
   computed: {

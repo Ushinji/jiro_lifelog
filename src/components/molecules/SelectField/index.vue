@@ -1,12 +1,17 @@
 <template>
-  <select @change="onChange">
-    <option value="" hidden>
-      {{ label }}
-    </option>
-    <option v-for="option in options" :key="option.id" :value="option.value">
-      {{ option.label }}
-    </option>
-  </select>
+  <div>
+    <select @focus="onFocus" @change="onChange">
+      <option value.value="" hidden>
+        {{ label }}
+      </option>
+      <option v-for="option in options" :key="option.id" :value="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+    <p v-if="isError">
+      {{ errorLabel }}
+    </p>
+  </div>
 </template>
 
 <script>
@@ -22,13 +27,37 @@ export default {
       required: true,
     },
     value: {
+      type: Object,
+      required: true,
+    },
+    validate: {
+      type: Function,
+      required: true,
+    },
+    errorLabel: {
       type: String,
       required: true,
     },
   },
+  data() {
+    return {
+      touched: false,
+    };
+  },
+  computed: {
+    isError() {
+      return this.touched && !this.validate(this.value.value);
+    },
+  },
   methods: {
+    onFocus() {
+      this.touched = true;
+    },
     onChange(e) {
-      this.$emit('input', e.target.value);
+      this.$emit('input', {
+        value: e.target.value,
+        isError: !this.validate(e.target.value),
+      });
     },
   },
 };

@@ -13,8 +13,8 @@
             v-model="storeId"
             label="店名を選択"
             error-label="店名を選択をしてください"
-            :options="storeOptions"
             :validate="validateStoreId"
+            :options="activityParams.store"
           />
         </div>
 
@@ -26,8 +26,8 @@
             v-model="menuId"
             label="メニューを選択"
             error-label="メニューを選択をしてください"
-            :options="menuOptions"
             :validate="validateMenuId"
+            :options="activityParams.menu"
           />
         </div>
 
@@ -39,8 +39,8 @@
             v-model="size"
             label="麺の量を選択"
             error-label="麺の量を選択をしてください"
-            :options="sizeOptions"
             :validate="validateSize"
+            :options="activityParams.size"
           />
         </div>
 
@@ -52,8 +52,8 @@
             v-model="yasai"
             label="野菜の量を選択"
             error-label="野菜の量を選択をしてください"
-            :options="yasaiOptions"
             :validate="validateYasai"
+            :options="activityParams.yasai"
           />
         </div>
 
@@ -65,8 +65,8 @@
             v-model="abura"
             label="アブラの量を選択"
             error-label="アブラの量を選択をしてください"
-            :options="aburaOptions"
             :validate="validateAbura"
+            :options="activityParams.abura"
           />
         </div>
 
@@ -78,8 +78,8 @@
             v-model="ninniku"
             label="にんにくの量を選択"
             error-label="にんにくの量を選択をしてください"
-            :options="ninnikuOptions"
             :validate="validateNinniku"
+            :options="activityParams.ninniku"
           />
         </div>
 
@@ -91,8 +91,8 @@
             v-model="karame"
             label="カラシの量を選択"
             error-label="カラシの量を選択をしてください"
-            :options="karameOptions"
             :validate="validateKarame"
+            :options="activityParams.karame"
           />
         </div>
         <Button
@@ -120,16 +120,12 @@ export default {
     Button,
   },
   props: {
-    stores: {
-      type: Array,
-      required: true,
-    },
-    menus: {
-      type: Array,
-      required: true,
-    },
     onSubmit: {
       type: Function,
+      required: true,
+    },
+    activityParams: {
+      type: Object,
       required: true,
     },
   },
@@ -165,131 +161,6 @@ export default {
       },
       isLoading: false,
     };
-  },
-  computed: {
-    storeOptions() {
-      return this.stores.map(store => {
-        return {
-          id: store.id,
-          value: store.id,
-          label: store.name,
-        };
-      });
-    },
-    menuOptions() {
-      return this.menus.map(menu => {
-        return {
-          id: menu.id,
-          value: menu.id,
-          label: menu.name,
-        };
-      });
-    },
-    sizeOptions: () => [
-      {
-        id: 1,
-        value: 'small',
-        label: '小',
-      },
-      {
-        id: 2,
-        value: 'large',
-        label: '大',
-      },
-    ],
-    yasaiOptions: () => [
-      {
-        id: 1,
-        value: 'small',
-        label: '小',
-      },
-      {
-        id: 2,
-        value: 'normal',
-        label: 'ノーコール',
-      },
-      {
-        id: 3,
-        value: 'large',
-        label: 'マシ',
-      },
-      {
-        id: 4,
-        value: 'mashimashi',
-        label: 'マシマシ',
-      },
-    ],
-    aburaOptions: () => [
-      {
-        id: 1,
-        value: 'small',
-        label: '小',
-      },
-      {
-        id: 2,
-        value: 'normal',
-        label: 'ノーコール',
-      },
-      {
-        id: 3,
-        value: 'large',
-        label: 'マシ',
-      },
-      {
-        id: 4,
-        value: 'mashimashi',
-        label: 'マシマシ',
-      },
-      {
-        id: 5,
-        value: 'crazy',
-        label: 'ザブトン',
-      },
-    ],
-    ninnikuOptions: () => [
-      {
-        id: 1,
-        value: 'small',
-        label: '小',
-      },
-      {
-        id: 2,
-        value: 'normal',
-        label: 'ノーコール',
-      },
-      {
-        id: 3,
-        value: 'large',
-        label: 'マシ',
-      },
-      {
-        id: 4,
-        value: 'mashimashi',
-        label: 'マシマシ',
-      },
-    ],
-    karameOptions: () => [
-      {
-        id: 1,
-        value: 'small',
-        label: '小',
-      },
-      {
-        id: 2,
-        value: 'normal',
-        label: 'ノーコール',
-      },
-      {
-        id: 3,
-        value: 'large',
-        label: 'マシ',
-      },
-      {
-        id: 4,
-        value: 'mashimashi',
-        label: 'マシマシ',
-      },
-    ],
   },
   methods: {
     validateStoreId(value) {

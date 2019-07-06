@@ -11,8 +11,7 @@
       </button>
       <Modal v-if="isOpenModal">
         <ActivityFormPanel
-          :stores="stores"
-          :menus="menus"
+          :activity-params="activityParams"
           :on-submit="addActivity"
         />
       </Modal>
@@ -21,9 +20,7 @@
 </template>
 
 <script>
-import { getActivites } from '@/queries/activityQuery';
-import { getStores } from '@/queries/storeQuery';
-import { getMenus } from '@/queries/menuQuery';
+import { getActivites, getActivityParams } from '@/queries/activityQuery';
 import { addActivity as addActivityCommand } from '@/commands/activityCommand';
 import HeaderLayout from '@/components/templates/HeaderLayout';
 import ActivityListPanel from '@/components/organisms/ActivityListPanel';
@@ -45,8 +42,7 @@ export default {
   data() {
     return {
       activities: [],
-      stores: [],
-      menus: [],
+      activityParams: {},
       isOpenModal: false,
       error: false,
       loading: false,
@@ -55,16 +51,15 @@ export default {
   async created() {
     try {
       this.loading = true;
-      const [activities, stores, menus] = await Promise.all([
+      const [activities, activityParams] = await Promise.all([
         getActivites(),
-        getStores(),
-        getMenus(),
+        getActivityParams(),
       ]);
       this.activities = activities;
-      this.stores = stores;
-      this.menus = menus;
+      this.activityParams = activityParams;
       this.loading = false;
-    } catch {
+    } catch (e) {
+      console.log(e);
       this.error = true;
       this.loading = false;
     }

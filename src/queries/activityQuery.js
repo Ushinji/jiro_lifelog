@@ -9,3 +9,12 @@ export const getActivites = async () => {
   const data = await res.json();
   return data;
 };
+
+export const getActivityParams = async () => {
+  const res = await fetch('api/activity_parameters', {
+    credentials: 'include',
+  });
+  if (!res.ok) throw Error;
+  const data = await res.json();
+  return data;
+};

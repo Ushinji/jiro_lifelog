@@ -95,7 +95,11 @@
             :validate="validateKarame"
           />
         </div>
-        <Button type="submit" :on-click="handleSubmit">
+        <Button
+          type="submit"
+          :disabled="!validateForm()"
+          :on-click="handleSubmit"
+        >
           作成する
         </Button>
       </form>

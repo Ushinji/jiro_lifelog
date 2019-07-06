@@ -1,5 +1,5 @@
 <template>
-  <button :type="type" class="button" @click="onClick">
+  <button :type="type" :disabled="disabled" class="button" @click="onClick">
     <slot />
   </button>
 </template>
@@ -15,6 +15,10 @@ export default {
     onClick: {
       type: Function,
       required: true,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -36,6 +40,13 @@ export default {
     background-color: $yello-dark;
     border-color: $yello-dark;
     cursor: pointer;
+  }
+
+  &:disabled {
+    color: $black40;
+    background-color: $yello-thin;
+    border-color: $yello-thin;
+    cursor: not-allowed;
   }
 }
 </style>

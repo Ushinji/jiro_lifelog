@@ -6,9 +6,6 @@
       <div v-else>
         <ActivityListPanel :activities="activities" />
       </div>
-      <button type="button" @click="openModal">
-        モーダルを開く
-      </button>
       <Modal v-if="isOpenModal">
         <ActivityFormPanel
           :activity-params="activityParams"
@@ -16,6 +13,7 @@
           :on-close="closeModal"
         />
       </Modal>
+      <AddActivityButton :on-click="openModal" />
     </div>
   </HeaderLayout>
 </template>
@@ -29,6 +27,7 @@ import ActivityFormPanel from '@/components/organisms/ActivityFormPanel';
 import ErrorPage from '@/components/organisms/ErrorPage';
 import Loading from '@/components/molecules/Loading';
 import Modal from '@/components/atoms/Modal';
+import AddActivityButton from '@/components/atoms/AddActivityButton';
 
 export default {
   name: 'DashboardPage',
@@ -39,6 +38,7 @@ export default {
     ErrorPage,
     Loading,
     Modal,
+    AddActivityButton,
   },
   data() {
     return {

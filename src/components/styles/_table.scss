@@ -9,6 +9,10 @@ table {
   table-layout: fixed;
   color: $black60;
 
+  tbody {
+    border-bottom: 1px solid $black5;
+  }
+
   th {
     padding: 16px;
     vertical-align: bottom;
@@ -17,7 +21,7 @@ table {
 
   td {
     padding: 16px;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid $black5;
   }
 }

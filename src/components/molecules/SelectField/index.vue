@@ -1,17 +1,13 @@
 <template>
   <div class="select-field">
     <select @focus="onFocus" @change="onChange">
-      <option value.value="" hidden>
-        {{ label }}
-      </option>
+      <option value.value="" />
       <option v-for="option in options" :key="option.id" :value="option.value">
         {{ option.label }}
       </option>
     </select>
-    <div class="position-relative">
-      <div class="error-message">
-        {{ isError ? errorLabel : '' }}
-      </div>
+    <div v-if="isError" class="error-label">
+      {{ errorLabel }}
     </div>
   </div>
 </template>
@@ -69,7 +65,7 @@ export default {
 @import '@/components/styles/_colors.scss';
 
 .select-field {
-  margin-bottom: 40px;
+  width: 100%;
 }
 
 select {
@@ -77,19 +73,18 @@ select {
   padding: 8px 12px;
   border: 1px solid $black10;
   -webkit-appearance: none;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   cursor: pointer;
+  width: 100%;
 }
 
-.position-relative {
-  position: relative;
-}
-
-.error-message {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 14px;
+.error-label {
+  font-size: 12px;
   color: $red;
+}
+
+.label {
+  font-size: 12px;
+  color: $black60;
 }
 </style>

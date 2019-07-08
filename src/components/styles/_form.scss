@@ -1,15 +1,21 @@
 @import '@/components/styles/_colors.scss';
 
 form {
-  .form--field-group {
+  .field-group__horizonal {
     width: 100%;
-    margin-bottom: 24px;
-  }
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 24px;
 
-  .form--field-label {
-    font-size: 14px;
-    font-weight: bold;
-    color: $black60;
-    margin-bottom: 8px;
+    .field-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: $black60;
+      margin-top: 8px;
+      margin-right: 16px;
+      width: 140px;
+    }
+
+    border-bottom: 1px solid $black5;
   }
 }

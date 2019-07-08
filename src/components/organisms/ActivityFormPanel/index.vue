@@ -1,5 +1,5 @@
 <template>
-  <Panel>
+  <Panel style="width: 100%;">
     <div class="activity-form">
       <div class="activity-form--header">
         活動記録を作成する
@@ -238,7 +238,6 @@ export default {
 
 .activity-form {
   padding: 16px;
-  width: 480px;
   height: 600px;
   overflow-y: scroll;
 

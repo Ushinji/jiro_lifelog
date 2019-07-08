@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="modal">
       <slot />
     </div>
@@ -16,17 +16,30 @@ export default {
 <style lang="scss" scoped>
 @import '@/components/styles/_colors.scss';
 
-.modal {
+.container {
+  z-index: 10;
   position: fixed;
-  z-index: 11;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  justify-content: center;
+}
+
+.modal {
+  z-index: 11;
   animation: slide-up 0.5s;
+
+  @media (max-width: 431px) {
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  @media (min-width: 432px) {
+    width: 400px;
+  }
 }
 
 @keyframes slide-up {

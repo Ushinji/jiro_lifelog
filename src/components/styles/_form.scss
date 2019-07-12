@@ -1,0 +1,15 @@
+@import '@/components/styles/_colors.scss';
+
+form {
+  .form--field-group {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .form--field-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: $black60;
+    margin-bottom: 8px;
+  }
+}

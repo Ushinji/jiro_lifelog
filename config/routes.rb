@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :activities, only: [:index, :create]
+    resources :activity_parameters, only: [:index]
   end
 
   root to: "dashboard#index"

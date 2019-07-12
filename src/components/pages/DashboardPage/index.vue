@@ -58,8 +58,7 @@ export default {
       this.activities = activities;
       this.activityParams = activityParams;
       this.loading = false;
-    } catch (e) {
-      console.log(e);
+    } catch {
       this.error = true;
       this.loading = false;
     }

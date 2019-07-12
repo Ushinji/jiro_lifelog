@@ -12,6 +12,8 @@
           <SelectField
             v-model="storeId"
             label="店名を選択"
+            error-label="店名を選択をしてください"
+            :validate="validateStoreId"
             :options="activityParams.store"
           />
         </div>
@@ -23,6 +25,8 @@
           <SelectField
             v-model="menuId"
             label="メニューを選択"
+            error-label="メニューを選択をしてください"
+            :validate="validateMenuId"
             :options="activityParams.menu"
           />
         </div>
@@ -34,6 +38,8 @@
           <SelectField
             v-model="size"
             label="麺の量を選択"
+            error-label="麺の量を選択をしてください"
+            :validate="validateSize"
             :options="activityParams.size"
           />
         </div>
@@ -45,6 +51,8 @@
           <SelectField
             v-model="yasai"
             label="野菜の量を選択"
+            error-label="野菜の量を選択をしてください"
+            :validate="validateYasai"
             :options="activityParams.yasai"
           />
         </div>
@@ -56,6 +64,8 @@
           <SelectField
             v-model="abura"
             label="アブラの量を選択"
+            error-label="アブラの量を選択をしてください"
+            :validate="validateAbura"
             :options="activityParams.abura"
           />
         </div>
@@ -67,6 +77,8 @@
           <SelectField
             v-model="ninniku"
             label="にんにくの量を選択"
+            error-label="にんにくの量を選択をしてください"
+            :validate="validateNinniku"
             :options="activityParams.ninniku"
           />
         </div>
@@ -78,11 +90,17 @@
           <SelectField
             v-model="karame"
             label="カラシの量を選択"
+            error-label="カラシの量を選択をしてください"
+            :validate="validateKarame"
             :options="activityParams.karame"
           />
         </div>
-        <Button type="submit" :on-click="handleSubmit">
-          作成する
+        <Button
+          type="submit"
+          :disabled="!validateForm() || isLoading"
+          :on-click="handleSubmit"
+        >
+          {{ isLoading ? '送信中...' : '作成する' }}
         </Button>
       </form>
     </div>
@@ -113,26 +131,90 @@ export default {
   },
   data() {
     return {
-      storeId: '',
-      menuId: '',
-      size: '',
-      yasai: '',
-      ninniku: '',
-      abura: '',
-      karame: '',
+      storeId: {
+        value: '',
+        isError: true,
+      },
+      menuId: {
+        value: '',
+        isError: true,
+      },
+      size: {
+        value: '',
+        isError: true,
+      },
+      yasai: {
+        value: '',
+        isError: true,
+      },
+      ninniku: {
+        value: '',
+        isError: true,
+      },
+      abura: {
+        value: '',
+        isError: true,
+      },
+      karame: {
+        value: '',
+        isError: true,
+      },
+      isLoading: false,
     };
   },
   methods: {
-    handleSubmit() {
-      this.onSubmit(
-        this.storeId,
-        this.menuId,
-        this.size,
-        this.yasai,
-        this.ninniku,
-        this.abura,
-        this.karame
+    validateStoreId(value) {
+      return value !== '';
+    },
+    validateMenuId(value) {
+      return value !== '';
+    },
+    validateSize(value) {
+      return value !== '';
+    },
+    validateYasai(value) {
+      return value !== '';
+    },
+    validateAbura(value) {
+      return value !== '';
+    },
+    validateNinniku(value) {
+      return value !== '';
+    },
+    validateKarame(value) {
+      return value !== '';
+    },
+    validateForm() {
+      return (
+        !this.storeId.isError &&
+        !this.menuId.isError &&
+        !this.size.isError &&
+        !this.yasai.isError &&
+        !this.abura.isError &&
+        !this.ninniku.isError &&
+        !this.karame.isError
       );
+    },
+    startLoding() {
+      this.isLoading = true;
+    },
+    finishLoding() {
+      this.isLoading = false;
+    },
+    async handleSubmit() {
+      if (this.validateForm()) {
+        this.startLoding();
+        await this.onSubmit(
+          this.storeId.value,
+          this.menuId.value,
+          this.size.value,
+          this.yasai.value,
+          this.ninniku.value,
+          this.abura.value,
+          this.karame.value
+        );
+        this.finishLoding();
+      }
     },
   },
 };
@@ -145,6 +227,8 @@ export default {
 .activity-form {
   padding: 16px;
   width: 480px;
+  height: 600px;
+  overflow-y: scroll;
 
   &--header {
     font-size: 16px;

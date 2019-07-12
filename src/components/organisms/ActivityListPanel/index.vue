@@ -1,6 +1,6 @@
 <template>
-  <Panel>
-    <div class="header">
+  <Panel class="activity-list-panel">
+    <div class="activity-list-panel--header">
       最新の食事履歴
     </div>
     <div v-if="activities.length">
@@ -21,7 +21,7 @@
         </tbody>
       </table>
     </div>
-    <div v-else class="no-activity">
+    <div v-else class="activity-list-panel--no-activity">
       まだ、活動履歴はありません。
     </div>
   </Panel>
@@ -55,16 +55,20 @@ export default {
 @import '@/components/styles/_colors.scss';
 @import '@/components/styles/_table.scss';
 
-.header {
-  padding: 24px;
-  font-size: 14px;
-  color: $black80;
-  font-weight: bold;
-}
+.activity-list-panel {
+  margin-bottom: 80px;
 
-.no-activity {
-  padding: 0 24px 24px 24px;
-  font-size: 14px;
-  color: $black80;
+  &--header {
+    padding: 16px;
+    font-size: 14px;
+    color: $black80;
+    font-weight: bold;
+  }
+
+  &--no-activity {
+    padding: 0 24px 24px 24px;
+    font-size: 14px;
+    color: $black80;
+  }
 }
 </style>

@@ -95,13 +95,19 @@
             :options="activityParams.karame"
           />
         </div>
-        <Button
-          type="submit"
-          :disabled="!validateForm() || isLoading"
-          :on-click="handleSubmit"
-        >
-          {{ isLoading ? '送信中...' : '作成する' }}
-        </Button>
+        <ButtonGroup>
+          <Button type="button" :on-click="onClose">
+            戻る
+          </Button>
+          <Button
+            type="submit"
+            button-style="primary"
+            :disabled="!validateForm() || isLoading"
+            :on-click="handleSubmit"
+          >
+            {{ isLoading ? '送信中...' : '作成する' }}
+          </Button>
+        </ButtonGroup>
       </form>
     </div>
   </Panel>
@@ -111,6 +117,7 @@
 import Panel from '@/components/atoms/Panel';
 import Button from '@/components/atoms/Button';
 import SelectField from '@/components/molecules/SelectField';
+import ButtonGroup from '@/components/molecules/ButtonGroup';
 
 export default {
   name: 'ActivityFormPanel',
@@ -118,9 +125,14 @@ export default {
     Panel,
     SelectField,
     Button,
+    ButtonGroup,
   },
   props: {
     onSubmit: {
+      type: Function,
+      required: true,
+    },
+    onClose: {
       type: Function,
       required: true,
     },

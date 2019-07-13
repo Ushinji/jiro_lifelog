@@ -28,4 +28,7 @@ COPY . $APP_ROOT
 
 RUN RAILS_ENV=production bundle exec rake assets:precompile assets:clean
 
+RUN npm install --no-save
+RUN NODE_ENV=production npm run build
+
 CMD [ "bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0" ]

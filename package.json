@@ -1,5 +1,66 @@
 {
   "name": "jiro_lifelog",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "start": "webpack-dev-server --mode development --inline --output '[name].js'",
+    "lint": "eslint --ext .js,.vue src",
+    "stylelint": "stylelint --fix 'src/**/*.{css,scss,vue}'",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.24.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "husky": "^2.4.0",
+    "lint-staged": "^8.2.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.0",
+    "prettier-stylelint": "^0.4.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.8.0",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.0",
+    "webpack-manifest-plugin": "^2.0.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  }
 }

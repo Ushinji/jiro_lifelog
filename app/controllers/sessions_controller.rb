@@ -1,8 +1,7 @@
-class SessionsController < ApplicationController
-  layout 'no_header'
+# frozen_string_literal: true
 
-  def login
-  end
+class SessionsController < ApplicationController
+  def login; end
 
   def callback
     auth_hash = request.env["omniauth.auth"]
@@ -11,8 +10,8 @@ class SessionsController < ApplicationController
 
     reset_session
     session[:user_id] = user.id
-    flash[:success] = 'ログインに成功しました'
-    
+    flash[:success] = "ログインに成功しました"
+
     redirect_to redirect_path
   end
 end

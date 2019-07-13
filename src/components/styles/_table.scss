@@ -1,0 +1,27 @@
+@import '@/components/styles/_colors.scss';
+
+table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+  table-layout: fixed;
+  color: $black60;
+
+  tbody {
+    border-bottom: 1px solid $black5;
+  }
+
+  th {
+    padding: 16px;
+    vertical-align: bottom;
+    border-top: 1px solid $black5;
+  }
+
+  td {
+    padding: 16px;
+    vertical-align: middle;
+    border-top: 1px solid $black5;
+  }
+}

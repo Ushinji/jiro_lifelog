@@ -1,0 +1,21 @@
+@import '@/components/styles/_colors.scss';
+
+form {
+  .field-group__horizonal {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 24px;
+
+    .field-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: $black60;
+      margin-top: 8px;
+      margin-right: 16px;
+      width: 140px;
+    }
+
+    border-bottom: 1px solid $black5;
+  }
+}

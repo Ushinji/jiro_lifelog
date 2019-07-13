@@ -1,9 +1,8 @@
 FROM node:12.3.1 as node
-
 FROM ruby:2.6.3 as base
+
 ENV LANG C.UTF-8
-ENV APP_ROOT=/app
-ENV NODE_VERSION 11.13.0
+ENV APP_ROOT=/app/
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
@@ -20,3 +19,13 @@ RUN apt-get update -qq \
 
 RUN mkdir $APP_ROOT
 WORKDIR $APP_ROOT
+
+FROM base
+
+ADD Gemfile* $APP_ROOT
+RUN bundle install --jobs=4 --deployment
+COPY . $APP_ROOT
+
+RUN RAILS_ENV=production bundle exec rake assets:precompile assets:clean
+
+CMD [ "bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0" ]

@@ -268,6 +268,7 @@ export default {
   &--footer {
     box-shadow: 0 0 4px $black10;
     padding: 16px;
+    background-color: $black1;
   }
 }
 </style>

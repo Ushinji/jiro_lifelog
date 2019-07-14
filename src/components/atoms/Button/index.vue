@@ -36,6 +36,9 @@ export default {
         case 'primary': {
           return 'button__primary';
         }
+        case 'bordered': {
+          return 'button__bordered';
+        }
         default:
           return 'button';
       }
@@ -82,6 +85,29 @@ export default {
   &:disabled {
     background-color: $yello-thin;
     border: 1px solid $yello-thin;
+  }
+}
+
+.button__bordered {
+  @extend .button;
+
+  background-color: transparent;
+  border: 1px solid $yellow;
+
+  &:hover {
+    background-color: $yellow;
+    border: 1px solid $yellow;
+  }
+
+  &:active {
+    background-color: $yellow;
+    border: 1px solid $yellow;
+  }
+
+  &:disabled {
+    color: $black40;
+    background-color: $black40;
+    border: 1px solid $black40;
   }
 }
 </style>

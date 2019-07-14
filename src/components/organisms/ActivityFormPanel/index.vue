@@ -102,7 +102,7 @@
 
         <div class="activity-form--footer">
           <ButtonGroup>
-            <Button type="button" :on-click="onClose">
+            <Button type="button" button-style="bordered" :on-click="onClose">
               戻る
             </Button>
             <Button

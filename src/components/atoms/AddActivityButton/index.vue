@@ -38,6 +38,7 @@ export default {
   font-size: 16px;
   font-weight: bold;
   border-radius: 50%;
+  border: 1px solid $red;
   background-color: $red;
   text-align: center;
   text-decoration: none;

@@ -10,7 +10,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, './public/dist'),
     filename: '[name]-[hash].js',
-    publicPath: 'http://localhost:4000/',
+    publicPath:
+      process.env.NODE_ENV === 'production' ? '' : 'http://localhost:4000/',
   },
   resolve: {
     extensions: ['.js', '.vue', '.scss'],

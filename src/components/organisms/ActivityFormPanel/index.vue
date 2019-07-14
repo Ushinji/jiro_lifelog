@@ -7,123 +7,114 @@
 
       <form @submit.prevent>
         <div class="activity-form--body">
-          <table>
-            <tbody>
-              <tr>
-                <td style="width: 40%;">
-                  店名
-                </td>
-                <td>
-                  <SelectField
-                    v-model="storeId"
-                    label="店名を選択"
-                    error-label="店名を選択をしてください"
-                    :validate="validateStoreId"
-                    :options="activityParams.store"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 40%;">
-                  メニュー
-                </td>
-                <td>
-                  <SelectField
-                    v-model="menuId"
-                    label="メニューを選択"
-                    error-label="メニューを選択をしてください"
-                    :validate="validateMenuId"
-                    :options="activityParams.menu"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 40%;">
-                  麺の量
-                </td>
-                <td>
-                  <SelectField
-                    v-model="size"
-                    label="麺の量を選択"
-                    error-label="麺の量を選択してください"
-                    :validate="validateSize"
-                    :options="activityParams.size"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 40%;">
-                  野菜の量
-                </td>
-                <td>
-                  <SelectField
-                    v-model="yasai"
-                    label="野菜の量を選択"
-                    error-label="野菜の量を選択してください"
-                    :validate="validateYasai"
-                    :options="activityParams.yasai"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 40%;">
-                  アブラの量
-                </td>
-                <td>
-                  <SelectField
-                    v-model="abura"
-                    label="アブラの量を選択"
-                    error-label="アブラの量を選択してください"
-                    :validate="validateAbura"
-                    :options="activityParams.abura"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 40%;">
-                  にんにくの量
-                </td>
-                <td>
-                  <SelectField
-                    v-model="ninniku"
-                    label="にんにくの量を選択"
-                    error-label="にんにくの量を選択してください"
-                    :validate="validateNinniku"
-                    :options="activityParams.ninniku"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 40%;">
-                  カラシの量
-                </td>
-                <td>
-                  <SelectField
-                    v-model="karame"
-                    label="カラシの量を選択"
-                    error-label="カラシの量を選択してください"
-                    :validate="validateKarame"
-                    :options="activityParams.karame"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="form--field-group">
+            <div class="form--field-label">
+              店名
+            </div>
+            <SelectField
+              v-model="storeId"
+              label="店名を選択"
+              error-label="店名を選択をしてください"
+              :validate="validateStoreId"
+              :options="activityParams.store"
+            />
+          </div>
+
+          <div class="form--field-group">
+            <div class="form--field-label">
+              メニュー
+            </div>
+            <SelectField
+              v-model="menuId"
+              label="メニューを選択"
+              error-label="メニューを選択をしてください"
+              :validate="validateMenuId"
+              :options="activityParams.menu"
+            />
+          </div>
+
+          <div class="form--field-group">
+            <div class="form--field-label">
+              麺の量
+            </div>
+            <SelectField
+              v-model="size"
+              label="麺の量を選択"
+              error-label="麺の量を選択してください"
+              :validate="validateSize"
+              :options="activityParams.size"
+            />
+          </div>
+
+          <div class="form--field-group">
+            <div class="form--field-label">
+              野菜の量
+            </div>
+            <SelectField
+              v-model="yasai"
+              label="野菜の量を選択"
+              error-label="野菜の量を選択してください"
+              :validate="validateYasai"
+              :options="activityParams.yasai"
+            />
+          </div>
+
+          <div class="form--field-group">
+            <div class="form--field-label">
+              アブラの量
+            </div>
+            <SelectField
+              v-model="abura"
+              label="アブラの量を選択"
+              error-label="アブラの量を選択してください"
+              :validate="validateAbura"
+              :options="activityParams.abura"
+            />
+          </div>
+
+          <div class="form--field-group">
+            <div class="form--field-label">
+              にんにくの量
+            </div>
+
+            <SelectField
+              v-model="ninniku"
+              label="にんにくの量を選択"
+              error-label="にんにくの量を選択してください"
+              :validate="validateNinniku"
+              :options="activityParams.ninniku"
+            />
+          </div>
+
+          <div class="form--field-group">
+            <div class="form--field-label">
+              カラシの量
+            </div>
+            <SelectField
+              v-model="karame"
+              label="カラシの量を選択"
+              error-label="カラシの量を選択してください"
+              :validate="validateKarame"
+              :options="activityParams.karame"
+            />
+          </div>
         </div>
 
-        <ButtonGroup>
-          <Button type="button" :on-click="onClose">
-            戻る
-          </Button>
-          <Button
-            type="submit"
-            button-style="primary"
-            :disabled="!validateForm() || isLoading"
-            :on-click="handleSubmit"
-          >
-            {{ isLoading ? '送信中...' : '作成する' }}
-          </Button>
-        </ButtonGroup>
+        <div class="activity-form--footer">
+          <ButtonGroup>
+            <Button type="button" :on-click="onClose">
+              戻る
+            </Button>
+            <Button
+              type="submit"
+              button-style="primary"
+              :disabled="!validateForm() || isLoading"
+              :on-click="handleSubmit"
+            >
+              {{ isLoading ? '送信中...' : '作成する' }}
+            </Button>
+          </ButtonGroup>
+        </div>
       </form>
     </div>
   </Panel>
@@ -251,24 +242,32 @@ export default {
 <style lang="scss" scoped>
 @import '@/components/styles/_colors.scss';
 @import '@/components/styles/_form.scss';
-@import '@/components/styles/_table.scss';
 
 .activity-form {
-  padding: 24px 16px;
-  height: 612px;
-  max-height: calc(100vh - 80px);
-  overflow-y: scroll;
+  min-height: calc(100vh - 144px);
+
+  form {
+    height: 100%;
+  }
 
   &--header {
+    padding: 16px;
     font-size: 16px;
     font-weight: bold;
     color: $black60;
-    padding-left: 16px;
-    margin-bottom: 24px;
+    height: 24px;
+    border-bottom: 1px solid $black5;
   }
 
   &--body {
-    margin-bottom: 32px;
+    padding: 16px;
+    height: calc(100vh - 300px);
+    overflow-y: scroll;
+  }
+
+  &--footer {
+    box-shadow: 0 0 4px $black10;
+    padding: 16px;
   }
 }
 </style>

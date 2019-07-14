@@ -1,7 +1,10 @@
 <template>
   <div class="select-field">
+    <Icon>keyboard_arrow_down</Icon>
     <select @focus="onFocus" @change="onChange">
-      <option value.value="" />
+      <option value.value="">
+        ---
+      </option>
       <option v-for="option in options" :key="option.id" :value="option.value">
         {{ option.label }}
       </option>
@@ -13,8 +16,13 @@
 </template>
 
 <script>
+import Icon from '@/components/atoms/Icon';
+
 export default {
   name: 'SelectField',
+  components: {
+    Icon,
+  },
   props: {
     options: {
       type: Array,
@@ -66,6 +74,14 @@ export default {
 
 .select-field {
   width: 100%;
+  position: relative;
+
+  .material-icons {
+    position: absolute;
+    top: 6px;
+    right: calc(50%);
+    color: $black40;
+  }
 }
 
 select {
@@ -75,7 +91,7 @@ select {
   -webkit-appearance: none;
   margin-bottom: 2px;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
 }
 
 .error-label {

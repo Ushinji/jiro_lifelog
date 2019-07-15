@@ -59,15 +59,15 @@ export default {
   margin-bottom: 80px;
 
   &--header {
+    font-size: 16px;
     padding: 16px;
-    font-size: 14px;
     color: $black80;
     font-weight: bold;
   }
 
   &--no-activity {
     padding: 0 24px 24px 24px;
-    font-size: 14px;
+    font-size: 16px;
     color: $black80;
   }
 }

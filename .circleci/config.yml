@@ -33,6 +33,6 @@ workflows:
   workflow:
     jobs:
       - deployment:
-        filters:
-          branches:
-            only: production
+          filters:
+            branches:
+              only: production

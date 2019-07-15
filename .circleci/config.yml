@@ -32,4 +32,7 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - deployment
+      - deployment:
+        filters:
+          branches:
+            only: production

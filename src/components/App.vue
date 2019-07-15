@@ -1,12 +1,19 @@
 <template>
   <div>
-    <router-view />
+    <FlashProvider>
+      <router-view />
+    </FlashProvider>
   </div>
 </template>
 
 <script>
+import FlashProvider from '@/components/providers/FlashProvider';
+
 export default {
   name: 'App',
+  components: {
+    FlashProvider,
+  },
 };
 </script>
 

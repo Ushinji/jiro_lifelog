@@ -3,6 +3,7 @@ jobs:
   deployment:
     machine:
       image: circleci/classic:latest
+    working_directory: ~/repo
     steps:
       - checkout
       - run:

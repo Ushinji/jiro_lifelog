@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  deployment:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - checkout
+      - run:
+          name: "build docker image"
+          command: docker build --rm=false -t registry.heroku.com/${HEROKU_APP_NAME}/web .
+      - run:
+          name: "setup heroku command"
+          command: .circleci/scripts/setup_heroku.sh
+      - run:
+          name: "Heroku maintenance on"
+          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
+      - run:
+          name: "Push docker image"
+          command: heroku container:push web --app ${HEROKU_APP_NAME}
+      - run:
+          name: "DB migration"
+          command: heroku run bundle exec rails db:migrate --app ${HEROKU_APP_NAME}
+      - run:
+          name: "Restart app"
+          command: heroku container:release web --app ${HEROKU_APP_NAME}
+      - run:
+          name: Heroku maintenance off
+          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - deployment

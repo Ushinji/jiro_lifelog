@@ -12,6 +12,7 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs \
   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
 
 RUN apt-get update -qq \
+    &&  apt-get upgrade -y \
     &&  apt-get install -y --no-install-recommends \
         build-essential \
         mysql-client \

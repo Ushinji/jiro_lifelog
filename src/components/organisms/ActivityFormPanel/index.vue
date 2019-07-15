@@ -2,7 +2,7 @@
   <Panel style="width: 100%;">
     <div class="activity-form">
       <div class="activity-form--header">
-        食事履歴を作成する
+        食事記録を作成する
       </div>
 
       <form @submit.prevent>
@@ -234,7 +234,7 @@ export default {
           this.karame.value
         );
         this.finishLoding();
-        this.useFlash('食事履歴を作成しました！');
+        this.useFlash('食事記録を作成しました！');
       }
     },
   },

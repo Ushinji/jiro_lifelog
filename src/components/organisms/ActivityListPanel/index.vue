@@ -1,7 +1,7 @@
 <template>
   <Panel class="activity-list-panel">
     <div class="activity-list-panel--header">
-      最新の食事履歴
+      最新の食事記録
     </div>
     <div v-if="activities.length">
       <table>

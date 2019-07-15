@@ -85,22 +85,27 @@ export default {
 }
 
 select {
-  font-size: 12px;
+  font-size: 16px;
   padding: 8px 12px;
   border: 1px solid $black10;
   -webkit-appearance: none;
   margin-bottom: 2px;
   cursor: pointer;
   width: 50%;
+  outline: 0;
+
+  &:focus {
+    border: 1px solid red;
+  }
 }
 
 .error-label {
-  font-size: 12px;
+  font-size: 16px;
   color: $red;
 }
 
 .label {
-  font-size: 12px;
+  font-size: 16px;
   color: $black60;
 }
 </style>

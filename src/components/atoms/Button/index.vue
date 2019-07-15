@@ -53,7 +53,7 @@ export default {
 .button {
   color: $black60;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid transparent;

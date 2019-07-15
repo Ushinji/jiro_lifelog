@@ -128,7 +128,6 @@ import ButtonGroup from '@/components/molecules/ButtonGroup';
 
 export default {
   name: 'ActivityFormPanel',
-  inject: ['useFlash'],
   components: {
     Panel,
     SelectField,
@@ -234,7 +233,6 @@ export default {
           this.karame.value
         );
         this.finishLoding();
-        this.useFlash('食事記録を作成しました！');
       }
     },
   },

@@ -40,6 +40,7 @@ export default {
     Modal,
     AddActivityButton,
   },
+  inject: ['useFlash'],
   data() {
     return {
       activities: [],
@@ -85,6 +86,8 @@ export default {
         const activites = await getActivites();
         this.activities = activites;
         this.closeModal();
+        window.scrollTo(0, 0);
+        this.useFlash('食事記録を作成しました！');
       } catch {
         // eslint-disable-next-line no-alert
         alert(

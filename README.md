@@ -1,5 +1,21 @@
-# Docker上の開発環境構築
+# what is this?
+- 2018年のハッカソン(【ハッカソン】ラーメン二郎をハックする「ジロッカソン」で)で作成したWebアプリケーション
 
+# Tech stack
+- Frontend
+  - Vue.js
+- ServerSide
+  - Ruby on Rails
+- Database
+  - MySQL
+- Infrastructure
+  - Heroku
+- CI/CD
+  - circleci
+
+# 開発環境構築
+
+# Docker上の開発環境構築
 * ローカルPCでdocker, docker-composeが起動できるようにする
   * macの場合は`docker for mac`をインストール
     * [Get started with Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
@@ -51,10 +67,19 @@ root@ab5a56adb191:/app# bin/rspec spec
 ```
 
 # Dockerなしで開発環境構築
+## Requirement
+- ruby: 2.6.3
+- rails: 5.2.3
+- mysql: 5.7
+- node: 12.3.1
 
 ## ビルド
 ```
+# Backend
 bundle install --path vendor/bundle
+
+# Frontend
+npm install
 ```
 
 ## DB作成・マイグレーション
@@ -69,7 +94,7 @@ bin/rails s
 => localhost:3000
 ```
 
-## 環境変数の設定
+# 環境変数
 * GOOGLE_CLIENT_ID : クライアントID
 * GOOGLE_CLIENT_SECRET : クライアントシークレット
 
@@ -104,4 +129,29 @@ bin/rails s
 ```
 
 ## バックエンド
-- ないです
+- バックエンドについてはRubocopを利用
+
+```
+$ bundle exec rubocop -a
+```
+
+# 本番デプロイ
+- このアプリについては、Heroku上にアプリケーションがデプロイされている
+- Herokuへのデプロイについては、circleciを利用してデプロイを行う
+- productionブランチにgit pushをすれば、ciが起動し、herokuへデプロイされる
+
+```
+# 最新のmasterブランチをgit pull
+$ git pull origin master
+
+# productionブランチへcheckout
+$ git checkout production
+
+# masterとの差分をrebase
+$ git rebase master
+
+# productionブランチへpush
+$ git push origin production
+```
+
+

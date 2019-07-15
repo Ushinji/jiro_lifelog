@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  deployment:
+    docker:
+      - image: circleci/python:3.7.4
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "setup heroku command"
+          command: .circleci/scripts/setup_heroku.sh
+      - run:
+          name: "Heroku maintenance on"
+          command: heroku maintenance:on --app ${HEROKU_APP_NAME}
+      - run:
+          name: "Login heroku container"
+          command: "heroku container:login"
+      - run:
+          name: "Push docker image"
+          command: heroku container:push web --app ${HEROKU_APP_NAME}
+      - run:
+          name: "DB migration"
+          command: heroku run bundle exec rails db:migrate --app ${HEROKU_APP_NAME}
+      - run:
+          name: "Restart app"
+          command: heroku container:release web --app ${HEROKU_APP_NAME}
+      - run:
+          name: Heroku maintenance off
+          command: heroku maintenance:off --app ${HEROKU_APP_NAME}
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - deployment:
+          filters:
+            branches:
+              only: production

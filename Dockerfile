@@ -14,7 +14,7 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs \
 RUN apt-get update -qq \
     &&  apt-get install -y --no-install-recommends \
         build-essential \
-        mysql-client \
+        default-mysql-client \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir $APP_ROOT

@@ -92,6 +92,11 @@ select {
   margin-bottom: 2px;
   cursor: pointer;
   width: 50%;
+  outline: 0;
+
+  &:focus {
+    border: 1px solid red;
+  }
 }
 
 .error-label {

@@ -2,7 +2,7 @@
   <Panel style="width: 100%;">
     <div class="activity-form">
       <div class="activity-form--header">
-        活動記録を作成する
+        食事記録を作成する
       </div>
 
       <form @submit.prevent>
@@ -128,6 +128,7 @@ import ButtonGroup from '@/components/molecules/ButtonGroup';
 
 export default {
   name: 'ActivityFormPanel',
+  inject: ['useFlash'],
   components: {
     Panel,
     SelectField,
@@ -233,6 +234,7 @@ export default {
           this.karame.value
         );
         this.finishLoding();
+        this.useFlash('食事記録を作成しました！');
       }
     },
   },

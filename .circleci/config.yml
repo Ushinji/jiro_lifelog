@@ -2,7 +2,7 @@ version: 2
 jobs:
   deployment:
     docker:
-      - image: buildpack-deps:trusty
+      - image: circleci/python:3.7.4
     working_directory: ~/repo
     steps:
       - checkout

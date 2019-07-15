@@ -26,7 +26,7 @@ export default {
 .flash-message {
   position: fixed;
   left: 32px;
-  bottom: 24px;
+  bottom: 32px;
   display: flex;
   background-color: $yellow-pale;
   color: $black60;
